@@ -1,720 +1,2093 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spiloteka Bünde – Vereinsheim am Hauptbahnhof | Karten, Fußball & Geselligkeit</title>
-<meta name="description" content="Spiloteka Bünde direkt am Hauptbahnhof: Karten spielen, Fußball live schauen, Kaffee, Tee und frische Säfte genießen – gemütliches Vereinsheim mit herzlichem Service. Bahnhofstraße 12, 32257 Bünde.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        ink: '#0A0E0C',
-        ink2: '#111815',
-        ink3: '#18211C',
-        cream: '#F7F3EA',
-        felt: { DEFAULT: '#0F5132', light: '#1B7A4B', dark: '#0A3A24', deep: '#06231A' },
-        gold: { DEFAULT: '#D9A441', light: '#EFC978', dark: '#A87C22' }
-      },
-      fontFamily: {
-        sans: ['Inter','system-ui','sans-serif'],
-        display: ['"Playfair Display"','Georgia','serif'],
-        signature: ['"Great Vibes"','cursive']
-      },
-      boxShadow: {
-        gold: '0 14px 34px -14px rgba(217,164,65,.7)',
-        card: '0 30px 60px -34px rgba(0,0,0,.9)'
-      }
-    }
-  }
-}
-</script>
-<style>
-:root{color-scheme:dark}
-html{scroll-behavior:smooth}
-body{background:#0A0E0C;color:#F7F3EA;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.font-display{font-family:"Playfair Display",Georgia,serif}
-.font-signature{font-family:"Great Vibes",cursive}
-::selection{background:#D9A441;color:#0A0E0C}
-section{scroll-margin-top:7rem}
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:#0A0E0C}
-::-webkit-scrollbar-thumb{background:#23352c;border-radius:999px;border:2px solid #0A0E0C}
-::-webkit-scrollbar-thumb:hover{background:#2f4a3e}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
-.reveal.is-visible{opacity:1;transform:none}
-.card-float{position:absolute;transform:translate(-50%,-50%) rotate(var(--rot,0deg));animation:floatY 7s ease-in-out infinite;filter:drop-shadow(0 25px 30px rgba(0,0,0,.5))}
-@keyframes floatY{0%,100%{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) translateY(0)}50%{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) translateY(-16px)}}
-.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#EFC978}
-.eyebrow::before{content:'';width:1.9rem;height:1px;background:linear-gradient(90deg,transparent,#D9A441)}
-#site-header{transition:all .4s ease;border-bottom:1px solid transparent}
-#site-header.scrolled{background:rgba(10,14,12,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:rgba(247,243,234,.08);box-shadow:0 18px 40px -30px rgba(0,0,0,.9)}
-.nav-link{position:relative;padding:.55rem .8rem;border-radius:.6rem;color:rgba(247,243,234,.72);font-size:.88rem;font-weight:500;transition:.25s}
-.nav-link:hover,.nav-link.active{color:#F7F3EA;background:rgba(255,255,255,.06)}
-.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.78rem 1.6rem;border-radius:999px;background:linear-gradient(135deg,#EFC978,#D9A441 55%,#B8862B);color:#0A0E0C;font-weight:700;font-size:.9rem;box-shadow:0 14px 34px -14px rgba(217,164,65,.7);transition:.3s cubic-bezier(.22,1,.36,1)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 22px 48px -14px rgba(217,164,65,.85);filter:brightness(1.05)}
-.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.78rem 1.6rem;border-radius:999px;border:1px solid rgba(247,243,234,.2);color:#F7F3EA;font-weight:500;font-size:.9rem;transition:.3s}
-.btn-ghost:hover{border-color:#D9A441;color:#EFC978;background:rgba(217,164,65,.08);transform:translateY(-2px)}
-.tab-btn{padding:.7rem 1.35rem;border-radius:999px;font-size:.88rem;font-weight:500;border:1px solid rgba(247,243,234,.14);color:rgba(247,243,234,.7);background:rgba(255,255,255,.03);cursor:pointer;white-space:nowrap;transition:.25s}
-.tab-btn:hover{color:#F7F3EA;border-color:rgba(217,164,65,.5);transform:translateY(-1px)}
-.tab-btn.active{background:linear-gradient(135deg,#EFC978,#D9A441 55%,#B8862B);border-color:#D9A441;color:#0A0E0C;font-weight:700;box-shadow:0 12px 28px -14px rgba(217,164,65,.8)}
-.tab-panel{display:none}
-.tab-panel.active{display:block;animation:fadeUp .55s cubic-bezier(.22,1,.36,1) both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.field{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(247,243,234,.12);border-radius:.9rem;padding:.85rem 1rem;color:#F7F3EA;font-size:.95rem;transition:.25s}
-.field::placeholder{color:rgba(247,243,234,.35)}
-.field:focus{outline:none;border-color:#D9A441;background:rgba(255,255,255,.06);box-shadow:0 0 0 4px rgba(217,164,65,.13)}
-select.field option{background:#111815;color:#F7F3EA}
-input[type="date"].field::-webkit-calendar-picker-indicator, input[type="time"].field::-webkit-calendar-picker-indicator{filter:invert(80%) sepia(30%) saturate(500%) hue-rotate(-20deg)}
-.card-surface{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(247,243,234,.09);border-radius:1.5rem;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
-.card-surface:hover{transform:translateY(-6px);border-color:rgba(217,164,65,.35);box-shadow:0 30px 60px -34px rgba(0,0,0,.9)}
-.dotted-lead{flex:1 1 auto;margin:0 .7rem;border-bottom:1px dotted rgba(247,243,234,.22);transform:translateY(-4px)}
-.grain::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:20px 20px}
-.gold-text{background:linear-gradient(135deg,#EFC978,#D9A441);-webkit-background-clip:text;background-clip:text;color:transparent}
-.table-opt{border:1px solid rgba(247,243,234,.12);background:rgba(255,255,255,.03);border-radius:1rem;padding:.8rem .6rem;text-align:center;cursor:pointer;transition:.25s}
-.table-opt:hover{border-color:rgba(217,164,65,.5)}
-.table-opt.selected{border-color:#D9A441;background:rgba(217,164,65,.12);box-shadow:0 0 0 3px rgba(217,164,65,.15)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,1,.36,1)}
-.faq-item.open .faq-answer{max-height:300px}
-.faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-icon{transition:.3s}
-.dot-pulse{position:relative}
-.testi-slide{display:none}
-.testi-slide.active{display:block;animation:fadeUp .6s both}
-.lightbox{opacity:0;pointer-events:none;transition:.35s}
-.lightbox.open{opacity:1;pointer-events:auto}
-#toast{transition:.45s cubic-bezier(.22,1,.36,1)}
-.chip{width:2.25rem;height:2.25rem;border-radius:9999px}
-.tilt{transform-style:preserve-3d;will-change:transform}
-.stefanovic-wrap{display:none}
-@media(min-width:1280px){.stefanovic-wrap{display:flex!important}}
-.hero-grid-bg{background-image:linear-gradient(rgba(217,164,65,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(217,164,65,.06) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black 40%,transparent 75%)}
-.count-box{background:rgba(0,0,0,.45);border:1px solid rgba(217,164,65,.25);backdrop-filter:blur(8px)}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card-float,.marquee-track,.tab-panel.active{animation:none!important}html{scroll-behavior:auto}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vereinsheim Spiloteka | Bunde - Treffpunkt für Sport, Spiel & Genuss</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* === RESET & VARIABLES === */
+        :root {
+            --bg-body: #0d1117;
+            --bg-surface: #161b22;
+            --bg-card: #21262d;
+            --bg-card-hover: #29313d;
+            --primary: #d4a359;
+            --primary-glow: rgba(212, 163, 89, 0.35);
+            --primary-hover: #c38f42;
+            --secondary: #e65c00;
+            --accent: #2ea043;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --text-dim: #6e7681;
+            --border: rgba(240, 246, 252, 0.1);
+            --border-highlight: rgba(212, 163, 89, 0.4);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === BUTTONS & BADGES === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 0 8px 24px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 163, 89, 0.5);
+            color: #fff;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(46, 160, 67, 0.15);
+            border: 1px solid rgba(46, 160, 67, 0.3);
+            color: #3fb950;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #3fb950;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #3fb950;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(13, 17, 23, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-symbol {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 16px var(--primary-glow);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-title span {
+            color: var(--primary);
+        }
+
+        .logo-subtitle {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #fff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Stefanovic design signature in navbar */
+        .nav-credit {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 163, 89, 0.3);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+        .nav-credit i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .nav-credit:hover {
+            border-color: var(--primary);
+            background: rgba(212, 163, 89, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 130px 0 80px;
+            overflow: hidden;
+            background: radial-gradient(circle at 80% 20%, rgba(212, 163, 89, 0.12) 0%, rgba(13, 17, 23, 0) 55%),
+                        radial-gradient(circle at 10% 80%, rgba(230, 92, 0, 0.08) 0%, rgba(13, 17, 23, 0) 50%);
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.25;
+            background-image: 
+                radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .location-tag i {
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #fff 20%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+        }
+
+        .hero-features-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .hero-feature-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .hero-feature-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Hero Visual Showcase */
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-highlight);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background: rgba(22, 27, 34, 0.88);
+            border: 1px solid var(--border-highlight);
+            backdrop-filter: blur(20px);
+            padding: 18px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 320px;
+            z-index: 3;
+        }
+
+        .floating-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .floating-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .floating-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Station Proximity Badge */
+        .station-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(13, 17, 23, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .station-badge i {
+            color: var(--primary);
+        }
+
+        /* === SECTION STYLING === */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            background: rgba(212, 163, 89, 0.1);
+            padding: 5px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 163, 89, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* === FEATURES / HIGHLIGHTS === */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-highlight);
+            background: var(--bg-card-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(212, 163, 89, 0.1);
+            border: 1px solid rgba(212, 163, 89, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .card-icon {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* === ABOUT / ATMOSPHERE SECTION === */
+        .about-section {
+            background: linear-gradient(180deg, var(--bg-body) 0%, var(--bg-surface) 50%, var(--bg-body) 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-images-mosaic {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            height: 480px;
+            position: relative;
+        }
+
+        .mosaic-img-1 {
+            grid-column: 1 / 9;
+            grid-row: 1 / 9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mosaic-img-2 {
+            grid-column: 5 / 13;
+            grid-row: 6 / 13;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 3px solid var(--bg-surface);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+
+        .mosaic-img-1 img, .mosaic-img-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-badge-experience {
+            position: absolute;
+            top: 20px;
+            right: 0px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            z-index: 3;
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .about-badge-experience .num {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .about-badge-experience .lbl {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-perks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+
+        .perk-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .perk-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .perk-item span {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* === LIVE SPORT TICKER BANNER === */
+        .live-sports-strip {
+            background: linear-gradient(90deg, #1b222c, #161b22, #1b222c);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+        }
+
+        .live-strip-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .live-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .live-tag {
+            background: #da3633;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+
+        .sports-ticker-matches {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .match-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+        }
+
+        .match-badge .teams {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .match-badge .time {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* === DRINKS & REFRESHMENTS MENU === */
+        .drinks-section {
+            background: var(--bg-surface);
+        }
+
+        .drinks-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 40px;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn i {
+            color: var(--primary);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 18px var(--primary-glow);
+        }
+
+        .tab-btn.active i, .tab-btn:hover i {
+            color: #fff;
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .drink-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .drink-item:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+        }
+
+        .drink-icon-wrap {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(212, 163, 89, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .drink-details {
+            flex-grow: 1;
+        }
+
+        .drink-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .drink-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .drink-tag {
+            font-size: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .drink-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* === GALLERY / AMBIANCE SHOWCASE === */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 270px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 17, 23, 0.95), transparent 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .gallery-overlay span {
+            font-size: 0.82rem;
+            color: var(--primary);
+        }
+
+        /* === LOCATION & CONTACT === */
+        .location-section {
+            background: radial-gradient(circle at 50% 50%, rgba(212, 163, 89, 0.07) 0%, transparent 70%);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: stretch;
+        }
+
+        .location-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .loc-header {
+            margin-bottom: 28px;
+        }
+
+        .loc-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .loc-header p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(212, 163, 89, 0.12);
+            border: 1px solid rgba(212, 163, 89, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-text p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .info-text small {
+            font-size: 0.85rem;
+            color: var(--primary);
+            display: block;
+        }
+
+        /* Map Mockup / Directions Frame */
+        .map-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .station-direct-highlight {
+            padding: 30px;
+            background: linear-gradient(145deg, #18202b, #13171f);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .train-icon-big {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px var(--primary-glow);
+        }
+
+        .train-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .train-info p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .map-interactive-view {
+            flex-grow: 1;
+            min-height: 280px;
+            background: #11151c url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-overlay-layer {
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 17, 23, 0.78);
+            backdrop-filter: blur(2px);
+        }
+
+        .map-pin-box {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .pin-marker {
+            width: 58px;
+            height: 58px;
+            border-radius: 50% 50% 50% 0;
+            background: var(--primary);
+            transform: rotate(-45deg);
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border: 2px solid #fff;
+        }
+
+        .pin-marker i {
+            transform: rotate(45deg);
+            color: #000;
+            font-size: 1.5rem;
+        }
+
+        .pin-card-tag {
+            background: rgba(22, 27, 34, 0.92);
+            border: 1px solid var(--border-highlight);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #090c10;
+            border-top: 1px solid var(--border);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 16px;
+            max-width: 320px;
+            font-size: 0.92rem;
+        }
+
+        .footer-heading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            gap: 16px;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .designer-signature {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 30px;
+        }
+
+        .designer-signature strong {
+            color: var(--primary);
+        }
+
+        /* === MODAL / LIGHTBOX === */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 500px;
+            padding: 36px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        /* === RESPONSIVE BREAKPOINTS === */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-visual {
+                max-width: 550px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-surface);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-credit {
+                display: none; /* Accessible in mobile drawer or footer */
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .hero-features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.1rem;
+            }
+
+            .about-images-mosaic {
+                height: 380px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body id="top">
+<body>
 
-<!-- TOP INFOBAR -->
-<div class="bg-gradient-to-r from-felt-deep via-felt-dark to-felt-deep border-b border-gold/15 text-[12.5px]">
-  <div class="mx-auto max-w-[1380px] px-5 py-2 flex items-center justify-between gap-4">
-    <p class="flex items-center gap-2 text-cream/75 truncate">
-      <span class="grid h-5 w-5 place-items-center rounded-full bg-gold/15 text-gold text-[11px]"><i class="fa-solid fa-location-dot"></i></span>
-      <span class="truncate"><strong class="text-cream font-semibold">Bünde • Direkt am Hauptbahnhof</strong> <span class="hidden sm:inline text-cream/50">— Bahnhofstraße 12, 2 Min. zu Fuß vom Gleis</span></span>
-    </p>
-    <div class="hidden md:flex items-center gap-5 text-cream/65 shrink-0">
-      <span class="inline-flex items-center gap-2"><i class="fa-regular fa-clock text-gold"></i> <span id="top-hours">Heute: 16:00 – 24:00</span></span>
-      <a href="tel:+495223123456" class="inline-flex items-center gap-2 hover:text-gold transition"><i class="fa-solid fa-phone text-gold"></i> 05223 123 456</a>
-    </div>
-  </div>
-</div>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-symbol">
+                    <i class="fa-solid fa-dice-d6"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">SPILOTEKA<span>.</span></span>
+                    <span class="logo-subtitle">Vereinsheim Bunde</span>
+                </div>
+            </a>
 
-<!-- HEADER -->
-<header id="site-header" class="sticky top-0 inset-x-0 z-50">
-  <div class="mx-auto max-w-[1380px] px-5">
-    <div class="flex items-center justify-between h-[4.7rem] gap-3">
-      <a href="#top" class="flex items-center gap-3 shrink-0 group">
-        <span class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-gold-light to-gold-dark text-ink shadow-lg shadow-gold/20 group-hover:rotate-6 transition duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="11" height="14" rx="2"/><path d="M9.5 4.5h11a1 1 0 0 1 1 1v12"/></svg>
-        </span>
-        <span class="leading-none">
-          <span class="block font-display text-[1.45rem] tracking-wide text-cream">Spiloteka</span>
-          <span class="block mt-[3px] text-[10px] uppercase tracking-[0.3em] text-gold/90 font-semibold">Vereinsheim • Bünde</span>
-        </span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-cream/10 rounded-full px-2 py-1.5 backdrop-blur">
-        <a class="nav-link" href="#willkommen">Willkommen</a>
-        <a class="nav-link" href="#angebot">Angebot</a>
-        <a class="nav-link" href="#getraenke">Karte</a>
-        <a class="nav-link" href="#ambiente">Ambiente</a>
-        <a class="nav-link" href="#team">Team</a>
-        <a class="nav-link" href="#kontakt">Kontakt</a>
-      </nav>
-      <div class="flex items-center gap-3 shrink-0">
-        <a href="#kontakt" class="btn-gold hidden sm:inline-flex !py-2.5">Tisch reservieren <i class="fa-solid fa-arrow-right text-xs"></i></a>
-        <!-- Stefanovic design - far right signature -->
-        <div class="stefanovic-wrap hidden xl:flex items-center gap-3 pl-5 ml-1 border-l border-cream/10">
-          <div class="text-right leading-none">
-            <div class="font-signature text-[1.65rem] leading-none text-gold-light -rotate-[3deg] drop-shadow">Stefanovic</div>
-            <div class="text-[.62rem] tracking-[0.38em] uppercase font-bold text-cream/45 -mt-0.5 ml-1">design</div>
-          </div>
-          <span class="grid h-9 w-9 place-items-center rounded-full border border-gold/30 bg-gold/10 text-gold text-xs"><i class="fa-solid fa-pen-nib"></i></span>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Start</a></li>
+                <li><a href="#about" class="nav-link">Über Uns</a></li>
+                <li><a href="#features" class="nav-link">Angebote</a></li>
+                <li><a href="#drinks" class="nav-link">Getränke</a></li>
+                <li><a href="#gallery" class="nav-link">Ambiance</a></li>
+                <li><a href="#location" class="nav-link">Anfahrt & Kontakt</a></li>
+            </ul>
+
+            <!-- Stefanovic design - Krajnje desno u navbaru -->
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div class="nav-credit" title="Sajt kreirao Stefanovic design">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Stefanovic design</span>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menü öffnen">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <button id="menu-btn" aria-label="Menü öffnen" class="lg:hidden grid h-11 w-11 place-items-center rounded-xl border border-cream/15 text-cream/80 hover:text-cream hover:border-gold/50 transition"><i class="fa-solid fa-bars"></i></button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div id="mobile-menu" class="fixed inset-0 z-[60] hidden lg:hidden">
-  <div class="absolute inset-0 bg-ink/95 backdrop-blur-xl" data-close></div>
-  <div class="relative h-full flex flex-col justify-center px-8 max-w-md mx-auto">
-    <button id="menu-close" aria-label="Menü schließen" class="absolute top-6 right-6 grid h-11 w-11 place-items-center rounded-xl border border-cream/15 text-cream/80"><i class="fa-solid fa-xmark text-lg"></i></button>
-    <p class="eyebrow mb-4">Menü</p>
-    <nav class="flex flex-col gap-1">
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#willkommen">Willkommen</a>
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#angebot">Angebot</a>
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#getraenke">Getränkekarte</a>
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#ambiente">Ambiente</a>
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#team">Team</a>
-      <a class="mobile-link font-display text-3xl py-2.5 text-cream/85 hover:text-gold transition" href="#kontakt">Kontakt</a>
     </nav>
-    <a href="#kontakt" class="mobile-link btn-gold mt-8 self-start">Tisch reservieren</a>
-    <div class="mt-8 pt-6 border-t border-cream/10 flex items-center justify-between">
-      <p class="text-xs text-cream/40">Bahnhofstraße 12<br>32257 Bünde</p>
-      <div class="text-right"><div class="font-signature text-2xl leading-none text-gold-light">Stefanovic</div><div class="text-[.6rem] tracking-[0.32em] uppercase font-semibold text-cream/40">design</div></div>
-    </div>
-  </div>
-</div>
 
-<!-- HERO -->
-<section class="relative overflow-hidden pt-10 pb-14 md:pt-16 md:pb-20">
-  <div class="pointer-events-none absolute inset-0">
-    <div class="absolute inset-0 hero-grid-bg"></div>
-    <div class="absolute -top-40 left-1/4 h-[36rem] w-[36rem] rounded-full bg-felt/30 blur-[130px]"></div>
-    <div class="absolute top-1/3 -right-32 h-[30rem] w-[30rem] rounded-full bg-gold/10 blur-[120px]"></div>
-    <div class="absolute -bottom-40 left-0 h-[26rem] w-[26rem] rounded-full bg-emerald-500/10 blur-[120px]"></div>
-    <canvas id="suits-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
-  </div>
-  <div class="relative mx-auto max-w-7xl px-5">
-    <div class="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
-      <div class="reveal">
-        <div class="inline-flex items-center gap-2.5 rounded-full border border-cream/15 bg-white/[0.05] px-4 py-2 text-xs font-medium tracking-wide text-cream/85 backdrop-blur">
-          <span id="status-dot" class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span></span>
-          <span id="status-text">Öffnungszeiten werden geladen …</span>
-        </div>
-        <div class="mt-5 inline-flex items-center gap-2 rounded-full bg-gold/10 border border-gold/25 px-4 py-1.5 text-[12px] font-semibold text-gold-light">
-          <i class="fa-solid fa-train-subway"></i> Bünde Hauptbahnhof — nur 120 Meter • Ideal für Pendler & Fans
-        </div>
-        <h1 class="mt-5 font-display text-[2.7rem] leading-[1.02] sm:text-6xl lg:text-[4.4rem] text-cream">Geselligkeit,<br><span class="gold-text italic font-semibold">Karten</span> & gutes<br>Ambiente.</h1>
-        <p class="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-cream/65">Dein <span class="text-cream font-semibold">Vereinsheim in Bünde</span> – direkt neben dem Hauptbahnhof. Freunde treffen, Doppelkopf & Skat spielen, Fußball live fiebern. Dazu Kaffee, Tee und frische Säfte vom <span class="text-gold-light">charmanten Service-Team</span>.</p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a href="#kontakt" class="btn-gold">Tisch reservieren <i class="fa-solid fa-arrow-right text-sm"></i></a>
-          <a href="#getraenke" class="btn-ghost"><i class="fa-solid fa-mug-saucer"></i> Getränkekarte</a>
-          <a href="https://maps.google.com/?q=Bahnhof+B%C3%BCnde" target="_blank" class="inline-flex items-center gap-2 text-sm text-cream/60 hover:text-gold transition underline underline-offset-8 decoration-cream/20 hover:decoration-gold"><i class="fa-solid fa-diamond-turn-right text-gold"></i> Anfahrt vom Bahnhof</a>
-        </div>
-        <div class="mt-7 flex items-center gap-4">
-          <div class="flex -space-x-2.5">
-            <img src="https://i.pravatar.cc/100?img=5" class="h-8 w-8 rounded-full ring-2 ring-ink object-cover" alt="">
-            <img src="https://i.pravatar.cc/100?img=9" class="h-8 w-8 rounded-full ring-2 ring-ink object-cover" alt="">
-            <img src="https://i.pravatar.cc/100?img=32" class="h-8 w-8 rounded-full ring-2 ring-ink object-cover" alt="">
-            <img src="https://i.pravatar.cc/100?img=47" class="h-8 w-8 rounded-full ring-2 ring-ink object-cover" alt="">
-            <span class="h-8 w-8 rounded-full ring-2 ring-ink bg-gold text-ink text-[11px] font-bold grid place-items-center">500+</span>
-          </div>
-          <p class="text-xs text-cream/55"><b class="text-cream/85">500+ Stammgäste</b> aus Bünde & Umgebung<br><span class="text-gold tracking-wide">★★★★★</span> <b class="text-cream/80">4.9/5</b> bei Google</p>
-        </div>
-        <div class="mt-6 grid grid-cols-3 max-w-md gap-3 text-center">
-          <div class="rounded-2xl border border-cream/10 bg-white/[0.03] py-3"><p class="font-display text-2xl text-gold font-bold"><span class="counter" data-target="6">0</span></p><p class="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Tage offen</p></div>
-          <div class="rounded-2xl border border-cream/10 bg-white/[0.03] py-3"><p class="font-display text-2xl text-gold font-bold"><span class="counter" data-target="120">0</span>m</p><p class="text-[11px] uppercase tracking-widest text-cream/50 mt-1">zum Bahnhof</p></div>
-          <div class="rounded-2xl border border-cream/10 bg-white/[0.03] py-3"><p class="font-display text-2xl text-gold font-bold"><span class="counter" data-target="15">0</span>+</p><p class="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Getränke</p></div>
-        </div>
-      </div>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge-container">
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                            Jetzt Geöffnet • Willkommen!
+                        </div>
+                        <div class="location-tag">
+                            <i class="fa-solid fa-location-dot"></i> Direkt am Bahnhof Bunde
+                        </div>
+                    </div>
 
-      <div class="reveal">
-        <div class="relative mx-auto w-full max-w-[30rem]">
-          <div id="tilt-card" class="tilt grain relative aspect-square overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-felt via-felt-dark to-felt-deep ring-1 ring-white/10 shadow-[0_50px_100px_-40px_rgba(0,0,0,.95)]">
-            <div class="absolute -top-24 -left-16 h-72 w-72 rounded-full bg-gold/25 blur-3xl"></div>
-            <div class="absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-emerald-400/20 blur-3xl"></div>
-            <div class="absolute inset-5 rounded-[2rem] border border-gold/25 pointer-events-none"></div>
-            <div class="absolute inset-0">
-              <div class="card-float w-[5.5rem] sm:w-28 aspect-[2/3]" style="--rot:-18deg;left:27%;top:50%;animation-delay:-1.4s">
-                <div class="h-full w-full rounded-xl bg-gradient-to-br from-white to-[#F2ECE0] p-2.5 shadow-2xl flex flex-col justify-between"><div class="leading-none"><span class="block text-lg font-bold text-rose-600">A</span><span class="block text-sm text-rose-600 -mt-1">♥</span></div><div class="text-center text-4xl text-rose-600">♥</div><div class="leading-none rotate-180"><span class="block text-lg font-bold text-rose-600">A</span><span class="block text-sm text-rose-600 -mt-1">♥</span></div></div>
-              </div>
-              <div class="card-float w-[5.5rem] sm:w-28 aspect-[2/3]" style="--rot:1deg;left:50%;top:47%;animation-delay:-.4s">
-                <div class="h-full w-full rounded-xl bg-gradient-to-br from-white to-[#F2ECE0] p-2.5 shadow-2xl flex flex-col justify-between ring-2 ring-gold/60"><div class="leading-none"><span class="block text-lg font-bold text-ink">K</span><span class="block text-sm text-ink -mt-1">♠</span></div><div class="text-center text-4xl text-ink">♠</div><div class="leading-none rotate-180"><span class="block text-lg font-bold text-ink">K</span><span class="block text-sm text-ink -mt-1">♠</span></div></div>
-              </div>
-              <div class="card-float w-[5.5rem] sm:w-28 aspect-[2/3]" style="--rot:19deg;left:73%;top:50%;animation-delay:-2.3s">
-                <div class="h-full w-full rounded-xl bg-gradient-to-br from-white to-[#F2ECE0] p-2.5 shadow-2xl flex flex-col justify-between"><div class="leading-none"><span class="block text-lg font-bold text-rose-600">Q</span><span class="block text-sm text-rose-600 -mt-1">♦</span></div><div class="text-center text-4xl text-rose-600">♦</div><div class="leading-none rotate-180"><span class="block text-lg font-bold text-rose-600">Q</span><span class="block text-sm text-rose-600 -mt-1">♦</span></div></div>
-              </div>
+                    <h1 class="hero-title">
+                        Freizeit, Spiel & Genuss im Herzen von <span class="highlight">Bunde</span>.
+                    </h1>
+
+                    <p class="hero-description">
+                        Willkommen in der <strong>Spiloteka</strong> – Deinem modernen Vereinsheim für gesellige Runden, spannende Kartenspiele, packende Fußball-Liveübertragungen, erstklassige Kaffeespezialitäten und charmanten Service in stilvollem Ambiente.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#location" class="btn btn-primary">
+                            <i class="fa-solid fa-compass"></i> Jetzt Vorbeikommen
+                        </a>
+                        <a href="#drinks" class="btn btn-outline">
+                            <i class="fa-solid fa-mug-hot"></i> Getränkekarte Entdecken
+                        </a>
+                    </div>
+
+                    <div class="hero-features-list">
+                        <div class="hero-feature-item">
+                            <div class="hero-feature-icon">
+                                <i class="fa-solid fa-tv"></i>
+                            </div>
+                            <div class="hero-feature-text">
+                                <h4>Fußball Live</h4>
+                                <p>Sky & DAZN auf Großbild</p>
+                            </div>
+                        </div>
+
+                        <div class="hero-feature-item">
+                            <div class="hero-feature-icon">
+                                <i class="fa-solid fa-clover"></i>
+                            </div>
+                            <div class="hero-feature-text">
+                                <h4>Kartenspiele</h4>
+                                <p>Gemütliche Spielrunden</p>
+                            </div>
+                        </div>
+
+                        <div class="hero-feature-item">
+                            <div class="hero-feature-icon">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+                            <div class="hero-feature-text">
+                                <h4>Top Personal</h4>
+                                <p>Freundlich & aufmerksam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="station-badge">
+                            <i class="fa-solid fa-train"></i> 1 Min. Fußweg vom Bahnhof
+                        </div>
+                        <!-- Modern club lounge image -->
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Spiloteka Vereinsheim Lounge Bar Bunde">
+                    </div>
+
+                    <div class="hero-floating-card">
+                        <div class="floating-icon">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <div>
+                            <div class="floating-title">Top Gastfreundschaft</div>
+                            <div class="floating-desc">Attraktives Team & entspannte Lounge-Musik jeden Tag.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="absolute bottom-8 left-8 flex -space-x-3"><span class="chip bg-gradient-to-br from-gold-light to-gold-dark ring-4 ring-felt-dark/70"></span><span class="chip bg-gradient-to-br from-emerald-300 to-emerald-600 ring-4 ring-felt-dark/70"></span><span class="chip bg-gradient-to-br from-cream to-cream/60 ring-4 ring-felt-dark/70"></span></div>
-            <div class="absolute top-7 left-7 rounded-full border border-cream/15 bg-ink/50 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-cream/90 backdrop-blur-sm"><span class="inline-block h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse mr-1.5"></span>Bundesliga live</div>
-            <div class="absolute top-7 right-7 rounded-full border border-gold/30 bg-gold/10 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-gold-light backdrop-blur-sm">Kaffee & Kuchen</div>
-            <div class="absolute bottom-7 right-7 rounded-2xl bg-ink/70 backdrop-blur-md border border-cream/10 px-4 py-3 flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-full bg-emerald-500 text-white"><i class="fa-solid fa-location-dot text-sm"></i></span>
-              <div class="leading-none"><p class="text-[11px] uppercase tracking-widest text-cream/50">Bünde Zentrum</p><p class="text-sm font-medium text-cream mt-1">Bahnhofstraße 12</p></div>
-            </div>
-          </div>
-          <div class="absolute -bottom-6 -right-2 sm:right-2 bg-cream text-ink rounded-2xl p-4 shadow-xl max-w-[230px] hidden sm:flex gap-3 items-start border border-cream/50 rotate-1">
-            <img src="https://i.pravatar.cc/100?img=26" class="h-9 w-9 rounded-full object-cover shrink-0" alt="">
-            <div><p class="text-xs leading-snug font-medium">„2 Minuten vom Bahnhof – mein Wohnzimmer in Bünde!"</p><p class="text-[11px] text-ink/60 mt-1">— Anna, Stammgast</p><div class="text-gold-dark text-[11px] mt-0.5">★★★★★</div></div>
-          </div>
-          <button id="sound-toggle" class="absolute -left-3 top-1/2 -translate-y-1/2 grid h-11 w-11 place-items-center rounded-full bg-ink/80 border border-gold/30 text-gold backdrop-blur hover:bg-gold hover:text-ink transition" title="Atmosphäre an/aus"><i class="fa-solid fa-volume-low"></i></button>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- MARQUEE -->
-<div class="relative border-y border-cream/10 bg-white/[0.02] py-4 overflow-hidden">
-  <div class="marquee-track">
-    <div class="flex items-center gap-10 pr-10 text-[13px] uppercase tracking-[0.24em] text-cream/40 whitespace-nowrap"><span>Doppelkopf</span><span class="text-gold/60">♥</span><span>Skat</span><span class="text-gold/60">♠</span><span>Schafkopf</span><span class="text-gold/60">♦</span><span>Rommé</span><span class="text-gold/60">♣</span><span>Bundesliga live</span><span class="text-gold/60">♥</span><span>Champions League</span><span class="text-gold/60">♠</span><span>Kaffee</span><span class="text-gold/60">♦</span><span>Tee</span><span class="text-gold/60">♣</span><span class="text-gold-light">★ Bünde Hauptbahnhof ★</span><span class="text-gold/60">♥</span></div>
-    <div class="flex items-center gap-10 pr-10 text-[13px] uppercase tracking-[0.24em] text-cream/40 whitespace-nowrap" aria-hidden="true"><span>Doppelkopf</span><span class="text-gold/60">♥</span><span>Skat</span><span class="text-gold/60">♠</span><span>Schafkopf</span><span class="text-gold/60">♦</span><span>Rommé</span><span class="text-gold/60">♣</span><span>Bundesliga live</span><span class="text-gold/60">♥</span><span>Champions League</span><span class="text-gold/60">♠</span><span>Kaffee</span><span class="text-gold/60">♦</span><span>Tee</span><span class="text-gold/60">♣</span><span class="text-gold-light">★ Bünde Hauptbahnhof ★</span><span class="text-gold/60">♥</span></div>
-  </div>
-</div>
+    <!-- ================= LIVE SPORT STRIP ================= -->
+    <div class="live-sports-strip">
+        <div class="container">
+            <div class="live-strip-content">
+                <div class="live-title-wrap">
+                    <span class="live-tag">LIVE SPORT</span>
+                    <strong style="color: #fff; font-size: 0.95rem;">Aktuelle Übertragungen bei uns:</strong>
+                </div>
 
-<!-- WILLKOMMEN -->
-<section id="willkommen" class="relative py-20 md:py-28">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="grid lg:grid-cols-12 gap-12">
-      <div class="lg:col-span-5 reveal">
-        <span class="eyebrow">Willkommen in Bünde</span>
-        <h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Mehr als nur<br>ein Vereinsheim.</h2>
-        <p class="mt-6 text-cream/65 leading-relaxed">Das <strong class="text-cream">Spiloteka direkt am Bünder Hauptbahnhof</strong> ist der Treffpunkt für alle, die gute Stunden verbringen möchten. Aus dem Zug fallen und schon da sein – hier wird gelacht, gespielt, diskutiert und mitgefiebert.</p>
-        <p class="mt-4 text-cream/55 leading-relaxed">Ob Pendler auf einen schnellen Espresso, Kartenrunde am Abend oder Fußball mit Freunden: Du findest bei uns einen Platz, ein Getränk und jemanden zum Reden. Unser charmantes Team macht jeden Besuch besonders.</p>
-        <div class="mt-7 rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/10 to-transparent p-5 flex gap-4">
-          <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gold text-ink text-lg"><i class="fa-solid fa-train"></i></span>
-          <div><p class="font-semibold text-cream text-sm">So findest du uns</p><p class="text-sm text-cream/60 mt-1 leading-relaxed">Hauptbahnhof Bünde verlassen, <b class="text-cream/85">rechts in die Bahnhofstraße</b> – nach 120 m bist du da. Parkplätze & Fahrradständer direkt vor der Tür.</p></div>
-        </div>
-        <div class="mt-5 flex items-center gap-5 rounded-2xl border border-cream/10 bg-white/[0.03] p-5">
-          <div class="font-display text-5xl text-gold leading-none font-bold">6</div>
-          <p class="text-sm leading-relaxed text-cream/60">Tage die Woche geöffnet – Spieleabende, Fußballabende und gemütliche Nachmittage inklusive.</p>
-        </div>
-      </div>
-      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
-        <div class="card-surface p-7 reveal"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold/15 text-gold text-xl"><i class="fa-solid fa-people-group"></i></span><h3 class="mt-5 text-lg font-semibold text-cream">Geselligkeit</h3><p class="mt-2 text-sm leading-relaxed text-cream/55">Offene Runden, Stammtische und neue Bekanntschaften – ohne Anmeldung, ohne Druck. Auch für Zugezogene & Pendler.</p><button class="mt-4 text-xs font-semibold text-gold hover:text-gold-light transition learn-more" data-info="Jeden Dienstag und Donnerstag offene Kartenrunden. Einfach vorbeikommen – wir vermitteln Mitspieler!">Mehr erfahren →</button></div>
-        <div class="card-surface p-7 reveal" style="transition-delay:.08s"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold/15 text-gold text-xl"><i class="fa-solid fa-layer-group"></i></span><h3 class="mt-5 text-lg font-semibold text-cream">Kartenspiele</h3><p class="mt-2 text-sm leading-relaxed text-cream/55">Doppelkopf, Skat, Schafkopf, Rommé oder Bridge – Karten und Spielblöcke gibt es an der Theke.</p><button class="mt-4 text-xs font-semibold text-gold hover:text-gold-light transition learn-more" data-info="Leih-Kartenspiele gratis an der Theke. Profi-Tische für 4–8 Personen, reservierbar für deine Runde.">Mehr erfahren →</button></div>
-        <div class="card-surface p-7 reveal" style="transition-delay:.16s"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold/15 text-gold text-xl"><i class="fa-solid fa-tv"></i></span><h3 class="mt-5 text-lg font-semibold text-cream">Fußball live</h3><p class="mt-2 text-sm leading-relaxed text-cream/55">Großbildleinwand und mehrere Screens für Bundesliga, Champions League und Pokal.</p><button class="mt-4 text-xs font-semibold text-gold hover:text-gold-light transition learn-more" data-info="Alle Arminia-Spiele + Bundesliga-Konferenz auf 3 Screens. Ton an bei Topspielen – Gänsehaut garantiert!">Mehr erfahren →</button></div>
-        <div class="card-surface p-7 reveal" style="transition-delay:.24s"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold/15 text-gold text-xl"><i class="fa-solid fa-mug-saucer"></i></span><h3 class="mt-5 text-lg font-semibold text-cream">Getränke</h3><p class="mt-2 text-sm leading-relaxed text-cream/55">Kaffee, Cappuccino, über acht Teesorten sowie frisch gepresste Säfte und Schorlen.</p><button class="mt-4 text-xs font-semibold text-gold hover:text-gold-light transition learn-more" data-info="Frisch gepresster O-Saft, hausgemachte Teemischungen und italienische Kaffeebohnen – zum Mitnehmen für Bahngäste!">Mehr erfahren →</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ANGEBOT TABS -->
-<section id="angebot" class="relative py-20 md:py-28 border-y border-cream/10 bg-gradient-to-b from-white/[0.02] to-transparent">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="reveal max-w-2xl"><span class="eyebrow">Angebot</span><h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Was dich bei uns erwartet</h2><p class="mt-5 text-cream/60 leading-relaxed">Drei Gründe, warum das Spiloteka dein neuer Lieblingsort in Bünde wird – wähle aus, was dich reizt.</p></div>
-    <div class="mt-10 reveal">
-      <div class="flex flex-wrap gap-3" role="tablist" aria-label="Angebot">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="panel-karten">♠ Kartenabende</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="panel-fussball">⚽ Fußball live</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="panel-getraenke">☕ Getränke & Genuss</button>
-      </div>
-      <div class="mt-8 rounded-[1.75rem] border border-cream/10 bg-white/[0.03] p-7 sm:p-10 backdrop-blur">
-        <div id="panel-karten" class="tab-panel active" role="tabpanel">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div><h3 class="font-display text-2xl sm:text-3xl text-cream">Doppelkopf, Skat & Rommé</h3><p class="mt-5 text-cream/60 leading-relaxed">Von der entspannten Rommé-Runde bis zum echten Doppelkopf-Abend – bei uns findest du immer Mitspieler. Reservierbare Tische, Getränke in Reichweite und genug Zeit für die nächste Runde.</p>
-              <ul class="mt-7 space-y-3 text-sm text-cream/70"><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Feste Stammtische am Dienstag und Donnerstag</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Karten, Spielblöcke und Stifte gratis an der Theke</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 shrink-0 rounded-full bg-gold"></span> Tische für 4–8 Personen reservierbar</li></ul>
-              <a href="#kontakt" class="btn-gold mt-7 !py-2.5 !text-sm">Kartentisch sichern</a>
+                <div class="sports-ticker-matches">
+                    <div class="match-badge">
+                        <i class="fa-solid fa-futbol" style="color: var(--primary);"></i>
+                        <span class="teams">Bundesliga Top-Spiel</span>
+                        <span class="time">Samstag 15:30</span>
+                    </div>
+                    <div class="match-badge">
+                        <i class="fa-solid fa-trophy" style="color: #e6a73c;"></i>
+                        <span class="teams">UEFA Champions League</span>
+                        <span class="time">Di & Mi 21:00</span>
+                    </div>
+                    <div class="match-badge">
+                        <i class="fa-solid fa-beer-mug-empty" style="color: var(--accent);"></i>
+                        <span class="teams">Kartenabend & Turniere</span>
+                        <span class="time">Jeden Freitag</span>
+                    </div>
+                </div>
             </div>
-            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-felt-dark to-felt-deep ring-1 ring-white/10">
-              <div class="absolute -top-16 -right-10 h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
-              <div class="absolute inset-0 grid place-items-center"><div class="flex -space-x-4"><div class="h-24 w-16 rounded-lg bg-gradient-to-br from-white to-[#F2ECE0] shadow-xl -rotate-[14deg] grid place-items-center text-3xl text-rose-600 hover:-translate-y-2 transition">♥</div><div class="h-24 w-16 rounded-lg bg-gradient-to-br from-white to-[#F2ECE0] shadow-xl -rotate-[2deg] grid place-items-center text-3xl text-ink hover:-translate-y-2 transition">♠</div><div class="h-24 w-16 rounded-lg bg-gradient-to-br from-white to-[#F2ECE0] shadow-xl rotate-[12deg] grid place-items-center text-3xl text-rose-600 hover:-translate-y-2 transition">♦</div><div class="h-24 w-16 rounded-lg bg-gradient-to-br from-white to-[#F2ECE0] shadow-xl rotate-[24deg] grid place-items-center text-3xl text-ink hover:-translate-y-2 transition">♣</div></div></div>
-              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-ink/70 backdrop-blur border border-gold/20 rounded-full px-4 py-1.5 text-xs text-gold-light whitespace-nowrap">Jeden Di & Do ab 18 Uhr • Bünde</div>
-            </div>
-          </div>
         </div>
-        <div id="panel-fussball" class="tab-panel" role="tabpanel">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div><h3 class="font-display text-2xl sm:text-3xl text-cream">Bundesliga auf der Großbildleinwand</h3><p class="mt-5 text-cream/60 leading-relaxed">An Spieltagen wird das Vereinsheim zur Arena: Großbildleinwand, mehrere Screens und der Sound der Menge. Komm früh – vom Bahnhof bist du in 2 Minuten da!</p>
-              <ul class="mt-7 space-y-3 text-sm text-cream/70"><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Bundesliga, Champions League & DFB-Pokal</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Konferenz gleichzeitig auf zwei Screens</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Anpfiff-Special: Brezeln & Getränke im Angebot</li></ul>
-              <div class="mt-6 flex items-center gap-3 bg-ink/50 border border-cream/10 rounded-2xl p-4">
-                <span class="grid h-11 w-11 place-items-center rounded-full bg-red-500/15 text-red-400 shrink-0"><i class="fa-solid fa-trophy"></i></span>
-                <div class="flex-1"><p class="text-[11px] uppercase tracking-widest text-cream/50">Nächstes Highlight</p><p id="next-match-label" class="text-sm font-semibold text-cream">Samstag 18:30 • Topspiel der Woche</p></div>
-                <div class="flex gap-1.5 text-center"><div class="count-box rounded-lg px-2 py-1.5 min-w-[44px]"><p id="cd-d" class="font-bold text-gold">00</p><p class="text-[9px] text-cream/50 uppercase">Tage</p></div><div class="count-box rounded-lg px-2 py-1.5 min-w-[44px]"><p id="cd-h" class="font-bold text-gold">00</p><p class="text-[9px] text-cream/50 uppercase">Std</p></div><div class="count-box rounded-lg px-2 py-1.5 min-w-[44px]"><p id="cd-m" class="font-bold text-gold">00</p><p class="text-[9px] text-cream/50 uppercase">Min</p></div></div>
-              </div>
+    </div>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images-mosaic">
+                    <div class="mosaic-img-1">
+                        <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=700&q=80" alt="Kartenspielen & Geselligkeit">
+                    </div>
+                    <div class="mosaic-img-2">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80" alt="Getränke & Cocktails">
+                    </div>
+                    <div class="about-badge-experience">
+                        <div class="num">100%</div>
+                        <div class="lbl">Gute Laune</div>
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <span class="section-tag">Willkommen im Club</span>
+                    <h2>Dein zweites Wohnzimmer in Bunde</h2>
+                    <p>
+                        Die <strong>Spiloteka</strong> ist mehr als nur ein gewöhnliches Vereinsheim. Es ist ein lebendiger Treffpunkt direkt neben der zentralen Bahnstation in Bunde, geschaffen für alle, die Freude an geselligen Runden, spannenden Kartenspielen und packendem Live-Fußball haben.
+                    </p>
+                    <p>
+                        Ob ein intensives Kartenspiel unter Freunden, das Mitfiebern bei der Bundesliga oder einfach ein entspannter Plausch bei einer Tasse feinstem Kaffee: Unser charmantes und aufmerksames Personal sorgt stets dafür, dass kein Wunsch offen bleibt.
+                    </p>
+
+                    <div class="about-perks">
+                        <div class="perk-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Herzlicher Service</span>
+                        </div>
+                        <div class="perk-item">
+                            <i class="fa-solid fa-couch"></i>
+                            <span>Bequeme Lounges</span>
+                        </div>
+                        <div class="perk-item">
+                            <i class="fa-solid fa-wifi"></i>
+                            <span>Kostenloses High-Speed WLAN</span>
+                        </div>
+                        <div class="perk-item">
+                            <i class="fa-solid fa-square-parking"></i>
+                            <span>Parkplätze direkt vor Ort</span>
+                        </div>
+                    </div>
+
+                    <a href="#location" class="btn btn-primary">
+                        <i class="fa-solid fa-handshake"></i> Werde Teil der Community
+                    </a>
+                </div>
             </div>
-            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-felt-dark to-felt-deep ring-1 ring-white/10">
-              <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Stadion">
-              <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent"></div>
-              <div class="absolute inset-8 rounded-xl border border-gold/30 grid place-items-center bg-ink/40 backdrop-blur-sm"><div class="text-center"><span class="grid h-16 w-16 mx-auto place-items-center rounded-full bg-gold text-ink text-2xl shadow-gold"><i class="fa-solid fa-play ml-1"></i></span><p class="mt-4 text-xs uppercase tracking-[0.28em] text-gold-light">Heute Abend</p><p class="mt-1 font-display text-2xl text-cream">Anpfiff 20:30</p><p class="text-xs text-cream/50 mt-1">Alle Spiele • Alle Tore • Alle Emotionen</p></div></div>
-            </div>
-          </div>
         </div>
-        <div id="panel-getraenke" class="tab-panel" role="tabpanel">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div><h3 class="font-display text-2xl sm:text-3xl text-cream">Kaffee, Tee & frische Säfte</h3><p class="mt-5 text-cream/60 leading-relaxed">Ob Kännchen Kaffee am Nachmittag oder frisch gepresster Orangensaft zum Spiel – auch zum Mitnehmen für deine Weiterfahrt ab Bünde Hbf.</p>
-              <ul class="mt-7 space-y-3 text-sm text-cream/70"><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Kaffee, Cappuccino und Latte Macchiato</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Über acht Teesorten, auch frische Pfefferminze</li><li class="flex items-start gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span> Säfte, Schorlen und Spezi für lange Abende</li></ul>
-              <a href="#getraenke" class="btn-ghost mt-7 !py-2.5 !text-sm">Zur Getränkekarte</a>
+    </section>
+
+    <!-- ================= FEATURES / HIGHLIGHTS ================= -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Was Wir Bieten</span>
+                <h2 class="section-title">Erlebe Vielfalt & Unterhaltung</h2>
+                <p class="section-subtitle">
+                    Bei uns findest du die perfekte Mischung aus sportlichem Nervenkitzel, spielerischem Vergnügen und gepflegter Gastronomie.
+                </p>
             </div>
-            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-felt-dark to-felt-deep ring-1 ring-white/10">
-              <div class="absolute -top-16 left-1/3 h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
-              <div class="absolute inset-0 grid place-items-center"><div class="flex items-end gap-6">
-                <div class="text-center group cursor-pointer"><span class="grid h-20 w-20 place-items-center rounded-2xl bg-white/[0.06] border border-cream/15 text-gold text-3xl group-hover:bg-gold group-hover:text-ink transition"><i class="fa-solid fa-mug-saucer"></i></span><p class="mt-3 text-xs uppercase tracking-[0.2em] text-cream/60">Kaffee</p><p class="text-gold text-sm font-semibold">ab 1,80 €</p></div>
-                <div class="text-center group cursor-pointer"><span class="grid h-20 w-20 place-items-center rounded-2xl bg-white/[0.06] border border-cream/15 text-gold text-3xl group-hover:bg-gold group-hover:text-ink transition"><i class="fa-solid fa-whiskey-glass"></i></span><p class="mt-3 text-xs uppercase tracking-[0.2em] text-cream/60">Tee</p><p class="text-gold text-sm font-semibold">ab 1,90 €</p></div>
-                <div class="text-center group cursor-pointer"><span class="grid h-20 w-20 place-items-center rounded-2xl bg-white/[0.06] border border-cream/15 text-gold text-3xl group-hover:bg-gold group-hover:text-ink transition"><i class="fa-solid fa-glass-water"></i></span><p class="mt-3 text-xs uppercase tracking-[0.2em] text-cream/60">Säfte</p><p class="text-gold text-sm font-semibold">ab 2,20 €</p></div>
-              </div></div>
+
+            <div class="features-grid">
+                <!-- Feature 1: Kartenspiele -->
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="card-title">Kartenspiele & Geselligkeit</h3>
+                    <p class="card-desc">
+                        Ob Skat, Rommé, Belote oder Pokerrunde – unsere Tische bieten die perfekte Umgebung für leidenschaftliche Kartenspieler und taktische Duelle.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Fußball Live -->
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-futbol"></i>
+                    </div>
+                    <h3 class="card-title">Fußball Live-Streaming</h3>
+                    <p class="card-desc">
+                        Erlebe Bundesliga, Champions League, DFB-Pokal und internationale Länderspiele in bester HD-Qualität auf unseren Großbild-Fernsehern gemeinsam mit Fans.
+                    </p>
+                </div>
+
+                <!-- Feature 3: Attraktiver Service -->
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="card-title">Attraktives & Herzliches Team</h3>
+                    <p class="card-desc">
+                        Unser junges, freundliches und aufmerksames Barpersonal begrüßt dich mit einem Lächeln und sorgt für eine angenehme, vertraute Wohlfühlatmosphäre.
+                    </p>
+                </div>
+
+                <!-- Feature 4: Kaffee, Tee & Softdrinks -->
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="card-title">Erlesene Heiß- & Kaltgetränke</h3>
+                    <p class="card-desc">
+                        Genieße aromatischen Espresso, Cappuccino, eine erlesene Tee-Auswahl sowie erfrischende Säfte und eiskalte Softdrinks während deines Aufenthalts.
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- GETRÄNKEKARTE -->
-<section id="getraenke" class="relative py-20 md:py-28">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-      <div class="max-w-2xl"><span class="eyebrow">Getränkekarte</span><h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Warm, kalt & immer richtig</h2><p class="mt-5 text-cream/60 leading-relaxed">Eine Auswahl aus unserer Karte in Bünde. Alle Preise in Euro, inklusive Bedienung am Tisch – und alles auch <b class="text-cream">to go für den Zug</b>.</p></div>
-      <div class="flex gap-2 shrink-0">
-        <button class="tab-btn drink-filter active" data-filter="all">Alle</button>
-        <button class="tab-btn drink-filter" data-filter="warm">Warm</button>
-        <button class="tab-btn drink-filter" data-filter="kalt">Kalt</button>
-      </div>
-    </div>
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      <div class="card-surface p-7 reveal drink-card" data-cat="warm">
-        <div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-gold/15 text-gold text-lg"><i class="fa-solid fa-mug-saucer"></i></span><h3 class="font-display text-xl text-cream">Kaffee</h3></div><span class="text-[10px] uppercase tracking-widest bg-gold/15 text-gold px-2.5 py-1 rounded-full font-bold">Beliebt</span></div>
-        <ul class="mt-6 space-y-3.5 text-[0.94rem]">
-          <li class="flex items-baseline"><span class="text-cream/75">Kaffee, Tasse</span><span class="dotted-lead"></span><span class="text-gold font-semibold">1,80 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Cappuccino</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,40 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Latte Macchiato</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,80 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Kännchen Kaffee</span><span class="dotted-lead"></span><span class="text-gold font-semibold">3,50 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Espresso / doppelt</span><span class="dotted-lead"></span><span class="text-gold font-semibold">1,60 / 2,40 €</span></li>
-        </ul>
-        <p class="mt-5 text-xs text-cream/40 italic">+ Hafermilch +0,30 € • To-go Becher gratis</p>
-      </div>
-      <div class="card-surface p-7 reveal drink-card" data-cat="warm" style="transition-delay:.08s">
-        <div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-gold/15 text-gold text-lg"><i class="fa-solid fa-whiskey-glass"></i></span><h3 class="font-display text-xl text-cream">Tee</h3></div><span class="text-[10px] uppercase tracking-widest bg-emerald-400/15 text-emerald-300 px-2.5 py-1 rounded-full font-bold">8 Sorten</span></div>
-        <ul class="mt-6 space-y-3.5 text-[0.94rem]">
-          <li class="flex items-baseline"><span class="text-cream/75">Schwarztee</span><span class="dotted-lead"></span><span class="text-gold font-semibold">1,90 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Grüner Tee</span><span class="dotted-lead"></span><span class="text-gold font-semibold">1,90 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Kräutertee, versch. Sorten</span><span class="dotted-lead"></span><span class="text-gold font-semibold">1,90 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Frische Pfefferminze</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,20 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Kanne Tee (1 l)</span><span class="dotted-lead"></span><span class="text-gold font-semibold">4,20 €</span></li>
-        </ul>
-        <p class="mt-5 text-xs text-cream/40 italic">Mit Honig & Zitrone auf Wunsch</p>
-      </div>
-      <div class="card-surface p-7 reveal drink-card" data-cat="kalt" style="transition-delay:.16s">
-        <div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-xl bg-gold/15 text-gold text-lg"><i class="fa-solid fa-glass-water"></i></span><h3 class="font-display text-xl text-cream">Säfte & Erfrischung</h3></div><span class="text-[10px] uppercase tracking-widest bg-sky-400/15 text-sky-300 px-2.5 py-1 rounded-full font-bold">Frisch</span></div>
-        <ul class="mt-6 space-y-3.5 text-[0.94rem]">
-          <li class="flex items-baseline"><span class="text-cream/75">Apfelsaft (0,3 l)</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,20 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Orangensaft, frisch gepresst ⭐</span><span class="dotted-lead"></span><span class="text-gold font-semibold">3,20 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Johannisbeer- / Kirschsaft</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,40 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Apfelschorle</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,40 €</span></li>
-          <li class="flex items-baseline"><span class="text-cream/75">Spezi (0,5 l)</span><span class="dotted-lead"></span><span class="text-gold font-semibold">2,80 €</span></li>
-        </ul>
-        <p class="mt-5 text-xs text-cream/40 italic">Alle Säfte auch als Schorle möglich</p>
-      </div>
-    </div>
-    <p class="mt-6 text-xs text-cream/35 reveal">Weitere Getränke & kleine Snacks (Brezeln, Kuchen) auf Anfrage. Preisänderungen vorbehalten.</p>
-  </div>
-</section>
-
-<!-- AMBIENTE -->
-<section id="ambiente" class="relative py-20 md:py-28 border-y border-cream/10 bg-gradient-to-b from-transparent to-white/[0.02]">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="reveal max-w-2xl"><span class="eyebrow">Ambiente</span><h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Ein Raum zum Ankommen</h2><p class="mt-5 text-cream/60 leading-relaxed">Warmes Licht, bequeme Sitzecken und der leise Klang von Karten auf dem Tisch. Mitten in Bünde, direkt am Bahnhof – für lange Abende und kurze Pausen zwischen zwei Zügen. <span class="text-cream/40 text-sm">Klicke ein Bild für Großansicht.</span></p></div>
-    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="group relative overflow-hidden rounded-3xl border border-cream/10 aspect-[4/5] reveal gallery-item cursor-pointer" data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Sitzecken"><div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div><span class="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-ink/60 border border-cream/20 text-cream/80 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-expand text-xs"></i></span><div class="absolute inset-x-0 bottom-0 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-ink/50 border border-cream/15 text-gold backdrop-blur-sm"><i class="fa-solid fa-couch"></i></span><h3 class="mt-4 text-base font-semibold text-cream">Gemütliche Sitzecken</h3><p class="mt-1.5 text-sm text-cream/60">Bequeme Bänke für lange Runden.</p></div></div>
-      <div class="group relative overflow-hidden rounded-3xl border border-cream/10 aspect-[4/5] reveal gallery-item cursor-pointer" style="transition-delay:.08s" data-src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80"><img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Leinwand"><div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div><span class="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-ink/60 border border-cream/20 text-cream/80 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-expand text-xs"></i></span><div class="absolute inset-x-0 bottom-0 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-ink/50 border border-cream/15 text-gold backdrop-blur-sm"><i class="fa-solid fa-tv"></i></span><h3 class="mt-4 text-base font-semibold text-cream">Großbildleinwand</h3><p class="mt-1.5 text-sm text-cream/60">Jedes Spiel in voller Größe.</p></div></div>
-      <div class="group relative overflow-hidden rounded-3xl border border-cream/10 aspect-[4/5] reveal gallery-item cursor-pointer" style="transition-delay:.16s" data-src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Geselligkeit"><div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div><span class="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-ink/60 border border-cream/20 text-cream/80 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-expand text-xs"></i></span><div class="absolute inset-x-0 bottom-0 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-ink/50 border border-cream/15 text-gold backdrop-blur-sm"><i class="fa-solid fa-layer-group"></i></span><h3 class="mt-4 text-base font-semibold text-cream">Karten & Geselligkeit</h3><p class="mt-1.5 text-sm text-cream/60">Immer eine Runde, immer ein Lächeln.</p></div></div>
-      <div class="group relative overflow-hidden rounded-3xl border border-cream/10 aspect-[4/5] reveal gallery-item cursor-pointer" style="transition-delay:.24s" data-src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=80"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Kaffee"><div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div><span class="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-ink/60 border border-cream/20 text-cream/80 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-expand text-xs"></i></span><div class="absolute inset-x-0 bottom-0 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-ink/50 border border-cream/15 text-gold backdrop-blur-sm"><i class="fa-solid fa-mug-saucer"></i></span><h3 class="mt-4 text-base font-semibold text-cream">Kaffee in Gesellschaft</h3><p class="mt-1.5 text-sm text-cream/60">Nachmittage, die länger dauern dürfen.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" class="relative py-20 md:py-28">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="reveal max-w-2xl"><span class="eyebrow">Unser Team</span><h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Service mit Herz & Charme</h2><p class="mt-5 text-cream/60 leading-relaxed">Herzlich, aufmerksam und mit Stil – unsere Gastgeberinnen sorgen dafür, dass dein Glas nie leer wird und du dich vom ersten Moment an wie unter Freunden fühlst.</p></div>
-    <div class="mt-10 grid sm:grid-cols-3 gap-6">
-      <div class="card-surface p-7 text-center reveal group"><div class="relative mx-auto h-28 w-28"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Mara" class="h-28 w-28 rounded-full object-cover ring-2 ring-gold/30 group-hover:ring-gold/70 group-hover:scale-105 transition duration-300"><span class="absolute -bottom-1 -right-1 grid h-7 w-7 place-items-center rounded-full bg-gold text-ink text-xs">★</span></div><h3 class="mt-5 font-display text-xl text-cream">Mara</h3><p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-gold/90 font-semibold">Serviceleitung</p><p class="mt-4 text-sm leading-relaxed text-cream/55">Kennt jeden Stammtisch in Bünde und weiß genau, wer welchen Kaffee trinkt. Immer ein Lächeln.</p><div class="mt-4 flex justify-center gap-1 text-gold text-xs">★★★★★</div></div>
-      <div class="card-surface p-7 text-center reveal group" style="transition-delay:.08s"><div class="relative mx-auto h-28 w-28"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=400&q=80" alt="Elena" class="h-28 w-28 rounded-full object-cover ring-2 ring-gold/30 group-hover:ring-gold/70 group-hover:scale-105 transition duration-300"><span class="absolute -bottom-1 -right-1 grid h-7 w-7 place-items-center rounded-full bg-gold text-ink text-xs">★</span></div><h3 class="mt-5 font-display text-xl text-cream">Elena</h3><p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-gold/90 font-semibold">Bar & Kaffee</p><p class="mt-4 text-sm leading-relaxed text-cream/55">Macht den besten Cappuccino im Viertel – sagt man bei uns zumindest. Mit viel Herz.</p><div class="mt-4 flex justify-center gap-1 text-gold text-xs">★★★★★</div></div>
-      <div class="card-surface p-7 text-center reveal group" style="transition-delay:.16s"><div class="relative mx-auto h-28 w-28"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Sofia" class="h-28 w-28 rounded-full object-cover ring-2 ring-gold/30 group-hover:ring-gold/70 group-hover:scale-105 transition duration-300"><span class="absolute -bottom-1 -right-1 grid h-7 w-7 place-items-center rounded-full bg-gold text-ink text-xs">★</span></div><h3 class="mt-5 font-display text-xl text-cream">Sofia</h3><p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-gold/90 font-semibold">Service</p><p class="mt-4 text-sm leading-relaxed text-cream/55">Hat immer ein offenes Ohr und ein Lächeln für neue Gesichter. Unsere gute Seele.</p><div class="mt-4 flex justify-center gap-1 text-gold text-xs">★★★★★</div></div>
-    </div>
-    <!-- Reviews slider -->
-    <div class="reveal mt-8 rounded-[1.5rem] border border-cream/10 bg-white/[0.03] p-7 sm:p-9 relative overflow-hidden">
-      <div class="absolute -top-10 -right-10 text-[10rem] leading-none text-gold/10 font-display select-none">“</div>
-      <div id="testi-wrap">
-        <div class="testi-slide active"><p class="font-display text-xl sm:text-2xl text-cream italic leading-relaxed">„Direkt am Bahnhof und trotzdem so gemütlich. Beste Kartenrunde in Bünde – wir kommen jeden Donnerstag!"</p><p class="mt-4 text-sm text-cream/50">— <b class="text-gold-light">Jürgen K.</b> • Stammgast seit 2022 • <span class="text-gold">★★★★★</span></p></div>
-        <div class="testi-slide"><p class="font-display text-xl sm:text-2xl text-cream italic leading-relaxed">„Fußball auf der Großleinwand, super Service und frisch gepresster O-Saft. Was will man mehr?"</p><p class="mt-4 text-sm text-cream/50">— <b class="text-gold-light">Sabine M.</b> • aus Kirchlengern • <span class="text-gold">★★★★★</span></p></div>
-        <div class="testi-slide"><p class="font-display text-xl sm:text-2xl text-cream italic leading-relaxed">„Vom Gleis in 2 Minuten da. Freundlich, schnell, leckerer Kaffee – perfekt für Pendler wie mich."</p><p class="mt-4 text-sm text-cream/50">— <b class="text-gold-light">Daniel R.</b> • Pendler Bielefeld–Osnabrück • <span class="text-gold">★★★★★</span></p></div>
-      </div>
-      <div class="mt-6 flex items-center gap-3">
-        <button id="testi-prev" class="grid h-10 w-10 place-items-center rounded-full border border-cream/15 text-cream/70 hover:border-gold hover:text-gold transition"><i class="fa-solid fa-arrow-left text-sm"></i></button>
-        <button id="testi-next" class="grid h-10 w-10 place-items-center rounded-full border border-cream/15 text-cream/70 hover:border-gold hover:text-gold transition"><i class="fa-solid fa-arrow-right text-sm"></i></button>
-        <div id="testi-dots" class="flex gap-2 ml-2"></div>
-        <a href="https://maps.google.com/?q=Spiloteka+B%C3%BCnde" target="_blank" class="ml-auto text-xs text-cream/50 hover:text-gold transition underline underline-offset-4">Alle Google-Bewertungen →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- KONTAKT -->
-<section id="kontakt" class="relative py-20 md:py-28 border-t border-cream/10 bg-gradient-to-b from-white/[0.02] to-transparent">
-  <div class="mx-auto max-w-7xl px-5">
-    <div class="grid lg:grid-cols-2 gap-10">
-      <div class="reveal">
-        <span class="eyebrow">Kontakt • Bünde</span>
-        <h2 class="mt-5 font-display text-4xl md:text-[2.9rem] leading-[1.12] text-cream">Komm vorbei oder<br>reserviere deinen Tisch</h2>
-        <p class="mt-5 text-cream/60 leading-relaxed max-w-lg">Für Kartenrunden, Geburtstage oder Fußballabende reservieren wir gerne einen Tisch für dich. Oder einfach spontan reinkommen – <b class="text-cream">vom Hauptbahnhof Bünde keine 2 Minuten</b>.</p>
-        <div class="mt-7 grid sm:grid-cols-2 gap-5">
-          <div class="rounded-2xl border border-cream/10 bg-white/[0.03] p-5"><p class="text-[11px] uppercase tracking-[0.22em] text-gold/90 font-bold"><i class="fa-solid fa-location-dot mr-1.5"></i>Adresse</p><p class="mt-3 text-sm leading-relaxed text-cream/80">Spiloteka Vereinsheim<br>Bahnhofstraße 12<br>32257 Bünde</p><p class="mt-2 text-xs text-emerald-300"><i class="fa-solid fa-train-subway mr-1"></i> Gegenüber Hauptbahnhof</p><a href="https://maps.google.com/?q=Bahnhofstra%C3%9Fe+12+32257+B%C3%BCnde" target="_blank" class="mt-3 inline-flex text-xs font-semibold text-gold hover:text-gold-light transition">→ Auf Karte ansehen / Route</a></div>
-          <div class="rounded-2xl border border-cream/10 bg-white/[0.03] p-5"><p class="text-[11px] uppercase tracking-[0.22em] text-gold/90 font-bold"><i class="fa-solid fa-phone mr-1.5"></i>Erreichbar</p><p class="mt-3 text-sm leading-relaxed text-cream/80"><a href="tel:+495223123456" class="hover:text-gold transition font-semibold">05223 123 456</a><br><a href="mailto:hallo@spiloteka-buende.de" class="hover:text-gold transition">hallo@spiloteka-buende.de</a></p><p class="mt-3 text-xs text-cream/40">Antwort meist innerhalb von 24h</p><div class="mt-3 flex gap-2"><a href="tel:+495223123456" class="flex-1 text-center text-xs font-bold bg-white/[0.05] border border-cream/10 rounded-full py-2 hover:border-gold hover:text-gold transition"><i class="fa-solid fa-phone mr-1"></i>Anrufen</a><a href="mailto:hallo@spiloteka-buende.de" class="flex-1 text-center text-xs font-bold bg-white/[0.05] border border-cream/10 rounded-full py-2 hover:border-gold hover:text-gold transition"><i class="fa-solid fa-envelope mr-1"></i>Mail</a></div></div>
-        </div>
-        <div class="mt-5 rounded-2xl border border-cream/10 bg-white/[0.03] p-6">
-          <div class="flex items-center justify-between flex-wrap gap-3"><p class="text-[11px] uppercase tracking-[0.22em] text-gold/90 font-bold">Öffnungszeiten</p><span id="status-badge" class="inline-flex items-center gap-2 rounded-full border border-cream/15 px-3 py-1 text-[11px] font-medium text-cream/70"><span id="badge-dot" class="h-1.5 w-1.5 rounded-full bg-cream/40"></span><span id="badge-text">wird geprüft</span></span></div>
-          <ul class="mt-5 space-y-3 text-sm">
-            <li class="flex items-baseline"><span class="text-cream/60">Montag</span><span class="dotted-lead"></span><span class="text-cream/40">Ruhetag</span></li>
-            <li class="flex items-baseline"><span class="text-cream/60">Dienstag – Donnerstag</span><span class="dotted-lead"></span><span class="text-cream/90">16:00 – 24:00</span></li>
-            <li class="flex items-baseline"><span class="text-cream/60">Freitag</span><span class="dotted-lead"></span><span class="text-cream/90">16:00 – 01:00</span></li>
-            <li class="flex items-baseline"><span class="text-cream/60">Samstag</span><span class="dotted-lead"></span><span class="text-cream/90">14:00 – 01:00</span></li>
-            <li class="flex items-baseline"><span class="text-cream/60">Sonntag</span><span class="dotted-lead"></span><span class="text-cream/90">11:00 – 23:00</span></li>
-          </ul>
-          <p class="mt-4 text-xs text-cream/40">An Bundesliga-Spieltagen öffnen wir bereits ab 15:00 Uhr. Sonntags Kaffee & Kuchen ab 11 Uhr.</p>
-        </div>
-        <div class="mt-5 rounded-2xl overflow-hidden border border-cream/10 relative">
-          <iframe title="Karte Bünde Hauptbahnhof" src="https://www.google.com/maps?q=Bahnhof+B%C3%BCnde+Bahnhofstra%C3%9Fe+12&output=embed" class="w-full h-[220px] grayscale invert-[.92] contrast-[.9] opacity-90" loading="lazy" style="border:0"></iframe>
-          <a href="https://maps.google.com/?q=Bahnhofstra%C3%9Fe+12+32257+B%C3%BCnde" target="_blank" class="absolute bottom-3 left-3 right-3 sm:right-auto inline-flex items-center gap-2 bg-ink/85 backdrop-blur border border-gold/30 rounded-full px-4 py-2 text-xs font-semibold text-gold-light hover:bg-gold hover:text-ink transition"><i class="fa-solid fa-diamond-turn-right"></i> Navigation zum Spiloteka starten</a>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="rounded-[1.75rem] border border-cream/10 bg-white/[0.035] p-7 sm:p-9 backdrop-blur sticky top-28">
-          <div class="flex items-start justify-between gap-4"><div><h3 class="font-display text-2xl text-cream">Reservierungsanfrage</h3><p class="mt-2 text-sm text-cream/55">Unverbindlich & schnell. Wir melden uns in der Regel innerhalb eines Tages.</p></div><span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/15 text-gold"><i class="fa-solid fa-calendar-check"></i></span></div>
-          <form id="reservation-form" class="mt-6 space-y-4" novalidate>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div><label for="name" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Name *</label><input id="name" name="name" type="text" required class="field" placeholder="Vor- und Nachname"></div>
-              <div><label for="email" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">E-Mail *</label><input id="email" name="email" type="email" required class="field" placeholder="name@beispiel.de"></div>
+    <!-- ================= DRINKS MENU SHOWCASE ================= -->
+    <section class="drinks-section" id="drinks">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Genuss & Erfrischung</span>
+                <h2 class="section-title">Unsere Getränkekarte</h2>
+                <p class="section-subtitle">
+                    Perfekt zubereiteter Kaffee, aromatische Tees und spritzige Durstlöscher für deine gemütlichen Stunden.
+                </p>
             </div>
-            <div class="grid sm:grid-cols-3 gap-4">
-              <div><label for="date" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Datum</label><input id="date" name="date" type="date" class="field"></div>
-              <div><label for="time" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Uhrzeit</label><input id="time" name="time" type="time" value="18:00" class="field"></div>
-              <div><label for="guests" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Personen</label><select id="guests" name="guests" class="field"><option>2 Personen</option><option>3–4 Personen</option><option selected>5–8 Personen</option><option>9–15 Personen</option><option>Mehr als 15</option></select></div>
+
+            <!-- Tab Buttons -->
+            <div class="drinks-tabs">
+                <button class="tab-btn active" onclick="filterDrinks('all', this)">
+                    <i class="fa-solid fa-border-all"></i> Alle Getränke
+                </button>
+                <button class="tab-btn" onclick="filterDrinks('coffee', this)">
+                    <i class="fa-solid fa-mug-saucer"></i> Kaffeespezialitäten
+                </button>
+                <button class="tab-btn" onclick="filterDrinks('tea', this)">
+                    <i class="fa-solid fa-leaf"></i> Tee-Auswahl
+                </button>
+                <button class="tab-btn" onclick="filterDrinks('juices', this)">
+                    <i class="fa-solid fa-glass-water"></i> Säfte & Softdrinks
+                </button>
             </div>
-            <div><p class="text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Wunschtisch <span class="normal-case tracking-normal text-cream/30">(tippen zum Wählen)</span></p>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="table-picker">
-                <div class="table-opt selected" data-table="Stammtisch"><p class="text-xl">🃏</p><p class="text-xs font-semibold text-cream mt-1">Stammtisch</p><p class="text-[10px] text-cream/40">Karten</p></div>
-                <div class="table-opt" data-table="Leinwand"><p class="text-xl">📺</p><p class="text-xs font-semibold text-cream mt-1">Leinwand</p><p class="text-[10px] text-cream/40">Fußball</p></div>
-                <div class="table-opt" data-table="Fenster"><p class="text-xl">☕</p><p class="text-xs font-semibold text-cream mt-1">Fenster</p><p class="text-[10px] text-cream/40">Bahnhofblick</p></div>
-                <div class="table-opt" data-table="Lounge"><p class="text-xl">🛋️</p><p class="text-xs font-semibold text-cream mt-1">Lounge</p><p class="text-[10px] text-cream/40">Gemütlich</p></div>
-              </div>
+
+            <div class="drinks-grid" id="drinksContainer">
+                <!-- Coffee Items -->
+                <div class="drink-item" data-category="coffee">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-mug-saucer"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Espresso Italiano</h4>
+                            <span class="drink-tag">Frisch Gemahlen</span>
+                        </div>
+                        <p class="drink-desc">Kräftig, samtige Crema, serviert mit einem Glas stillem Wasser.</p>
+                    </div>
+                </div>
+
+                <div class="drink-item" data-category="coffee">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Cremiger Cappuccino</h4>
+                            <span class="drink-tag">Favorit</span>
+                        </div>
+                        <p class="drink-desc">Feinster Espresso mit perfekt aufgeschäumter, warmer Milch.</p>
+                    </div>
+                </div>
+
+                <div class="drink-item" data-category="coffee">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-coffee-bean"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Latte Macchiato</h4>
+                            <span class="drink-tag">Klassiker</span>
+                        </div>
+                        <p class="drink-desc">Drei Schichten purer Genuss im hohen Glas serviert.</p>
+                    </div>
+                </div>
+
+                <!-- Tea Items -->
+                <div class="drink-item" data-category="tea">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Ostfriesischer Schwarztee</h4>
+                            <span class="drink-tag">Lokal & Echt</span>
+                        </div>
+                        <p class="drink-desc">Echter Ostfriesentee, traditionell mit Kluntje und Sahne serviert.</p>
+                    </div>
+                </div>
+
+                <div class="drink-item" data-category="tea">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Frischer Minztee & Kräuter</h4>
+                            <span class="drink-tag">Wohltuend</span>
+                        </div>
+                        <p class="drink-desc">Mit frischer Minze, Kamille oder erfrischendem Zitronengras.</p>
+                    </div>
+                </div>
+
+                <!-- Juices & Softdrinks -->
+                <div class="drink-item" data-category="juices">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-lemon"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Frisch gepresster Orangensaft</h4>
+                            <span class="drink-tag">100% Frucht</span>
+                        </div>
+                        <p class="drink-desc">Vollmundig, frisch gepresst – reich an natürlichem Vitamin C.</p>
+                    </div>
+                </div>
+
+                <div class="drink-item" data-category="juices">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Apfelschorle & Fruchtsäfte</h4>
+                            <span class="drink-tag">Spritzig</span>
+                        </div>
+                        <p class="drink-desc">Naturtrüber Apfelsaft, Kirsche, Johannisbeere oder Maracuja.</p>
+                    </div>
+                </div>
+
+                <div class="drink-item" data-category="juices">
+                    <div class="drink-icon-wrap">
+                        <i class="fa-solid fa-bottle-water"></i>
+                    </div>
+                    <div class="drink-details">
+                        <div class="drink-top">
+                            <h4 class="drink-name">Gekühlte Softdrinks</h4>
+                            <span class="drink-tag">Ice Cold</span>
+                        </div>
+                        <p class="drink-desc">Coca-Cola, Fanta, Sprite, Mezzo Mix und Premium Tonic Water.</p>
+                    </div>
+                </div>
             </div>
-            <div><label for="message" class="block text-xs uppercase tracking-[0.18em] text-cream/50 mb-2 font-semibold">Nachricht</label><textarea id="message" name="message" rows="3" class="field resize-none" placeholder="Kartenrunde, Fußballabend, Geburtstag …"></textarea></div>
-            <p id="date-hint" class="hidden text-xs rounded-xl border border-amber-400/30 bg-amber-400/10 px-4 py-2.5 text-amber-200"></p>
-            <button type="submit" class="btn-gold w-full !py-3.5">Anfrage senden <i class="fa-solid fa-paper-plane text-sm"></i></button>
-            <p id="form-feedback" class="hidden text-sm rounded-xl border px-4 py-3"></p>
-            <p class="text-[11px] text-cream/30 text-center">Mit Absenden akzeptierst du unsere Datenschutzbestimmungen. Keine Vorkasse nötig.</p>
-          </form>
-          <div class="mt-6 pt-6 border-t border-cream/10">
-            <p class="text-[11px] uppercase tracking-[0.22em] text-gold/80 font-bold mb-3">Häufige Fragen</p>
-            <div class="space-y-2.5">
-              <div class="faq-item rounded-xl border border-cream/10 bg-white/[0.02] overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 text-sm text-cream/85 font-medium text-left">Brauche ich eine Reservierung? <span class="faq-icon text-gold">＋</span></button><div class="faq-answer"><p class="px-4 pb-4 text-[13px] text-cream/55 leading-relaxed">Nein – einfach vorbeikommen! An Spieltagen und freitags/samstags empfehlen wir aber eine Reservierung, da es voll werden kann.</p></div></div>
-              <div class="faq-item rounded-xl border border-cream/10 bg-white/[0.02] overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 text-sm text-cream/85 font-medium text-left">Wie komme ich vom Bahnhof zu euch? <span class="faq-icon text-gold">＋</span></button><div class="faq-answer"><p class="px-4 pb-4 text-[13px] text-cream/55 leading-relaxed">Hauptausgang nehmen, rechts in die Bahnhofstraße – nach ca. 120 Metern auf der linken Seite. Du siehst unser goldenes Schild schon vom Bahnsteig.</p></div></div>
-              <div class="faq-item rounded-xl border border-cream/10 bg-white/[0.02] overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between gap-3 px-4 py-3 text-sm text-cream/85 font-medium text-left">Zeigt ihr alle Bundesliga-Spiele? <span class="faq-icon text-gold">＋</span></button><div class="faq-answer"><p class="px-4 pb-4 text-[13px] text-cream/55 leading-relaxed">Ja! Bundesliga, 2. Liga, Champions League und DFB-Pokal auf Großleinwand + 2 Screens. Ton bei Topspielen immer an.</p></div></div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer class="relative border-t border-cream/10 bg-ink2/70">
-  <div class="mx-auto max-w-7xl px-5 py-14">
-    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-      <div class="max-w-sm">
-        <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-gold-light to-gold-dark text-ink"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6.5" width="11" height="14" rx="2"/><path d="M9.5 4.5h11a1 1 0 0 1 1 1v12"/></svg></span><span><span class="font-display text-xl text-cream">Spiloteka</span><span class="block text-[10px] uppercase tracking-[0.28em] text-gold/70 font-semibold">Vereinsheim • Bünde</span></span></div>
-        <p class="mt-5 text-sm leading-relaxed text-cream/50">Vereinsheim für Geselligkeit, Karten, Fußball und gute Getränke – <b class="text-cream/70">direkt am Hauptbahnhof Bünde</b>, für alle, die gerne zusammen sind.</p>
-        <div class="mt-5 flex items-center gap-2 text-xs text-cream/50"><span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-500/15 text-emerald-300"><i class="fa-solid fa-train-subway"></i></span> Bahnhofstraße 12 • 32257 Bünde • 2 Min. vom Hbf</div>
-        <div class="mt-5 flex gap-3">
-          <a href="#" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-full border border-cream/10 text-cream/50 hover:text-gold hover:border-gold/40 transition"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-          <a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-full border border-cream/10 text-cream/50 hover:text-gold hover:border-gold/40 transition"><i class="fa-brands fa-instagram text-sm"></i></a>
-          <a href="#" aria-label="TikTok" class="grid h-9 w-9 place-items-center rounded-full border border-cream/10 text-cream/50 hover:text-gold hover:border-gold/40 transition"><i class="fa-brands fa-tiktok text-sm"></i></a>
+    <!-- ================= GALLERY / AMBIANCE ================= -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Impressionen</span>
+                <h2 class="section-title">Einblicke in die Spiloteka</h2>
+                <p class="section-subtitle">
+                    Modernes Interieur, gemütliche Sitzecken und pure Lebensfreude.
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=700&q=80" alt="Bar und Getränke">
+                    <div class="gallery-overlay">
+                        <h4>Stilvolle Bar</h4>
+                        <span>Erfrischungen & Kaffee</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=700&q=80" alt="Kartenspiel Tische">
+                    <div class="gallery-overlay">
+                        <h4>Kartenspiel-Zone</h4>
+                        <span>Spannende Runden</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=700&q=80" alt="Fußball Arena Gefühl">
+                    <div class="gallery-overlay">
+                        <h4>Sports Lounge</h4>
+                        <span>Live Spiele & Emotionen</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Kaffeegenuss">
+                    <div class="gallery-overlay">
+                        <h4>Café Atmosphäre</h4>
+                        <span>Entspannen & Plaudern</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
-        <div><p class="text-[11px] uppercase tracking-[0.22em] text-gold/80 font-bold">Navigation</p><ul class="mt-4 space-y-2.5 text-cream/55"><li><a href="#willkommen" class="hover:text-gold transition">Willkommen</a></li><li><a href="#angebot" class="hover:text-gold transition">Angebot</a></li><li><a href="#getraenke" class="hover:text-gold transition">Getränkekarte</a></li><li><a href="#ambiente" class="hover:text-gold transition">Ambiente</a></li></ul></div>
-        <div><p class="text-[11px] uppercase tracking-[0.22em] text-gold/80 font-bold">Service</p><ul class="mt-4 space-y-2.5 text-cream/55"><li><a href="#team" class="hover:text-gold transition">Unser Team</a></li><li><a href="#kontakt" class="hover:text-gold transition">Reservierung</a></li><li><a href="#kontakt" class="hover:text-gold transition">Anfahrt Hbf</a></li><li><a href="#kontakt" class="hover:text-gold transition">Öffnungszeiten</a></li></ul></div>
-        <div><p class="text-[11px] uppercase tracking-[0.22em] text-gold/80 font-bold">Kontakt</p><ul class="mt-4 space-y-2.5 text-cream/55"><li>Bahnhofstraße 12</li><li>32257 Bünde</li><li><a href="tel:+495223123456" class="hover:text-gold transition">05223 123 456</a></li><li><a href="mailto:hallo@spiloteka-buende.de" class="hover:text-gold transition">hallo@spiloteka-buende.de</a></li></ul></div>
-      </div>
+    </section>
+
+    <!-- ================= LOCATION & CONTACT ================= -->
+    <section class="location-section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Besuche Uns</span>
+                <h2 class="section-title">Direkt am Bahnhof Bunde</h2>
+                <p class="section-subtitle">
+                    Zentraler geht es nicht: Nur wenige Schritte von Gleis und Hauptstation entfernt!
+                </p>
+            </div>
+
+            <div class="location-grid">
+                <div class="location-card">
+                    <div>
+                        <div class="loc-header">
+                            <h3>Spiloteka Vereinsheim</h3>
+                            <p>Dein Treffpunkt für Entspannung, Spiel & beste Unterhaltung.</p>
+                        </div>
+
+                        <div class="info-list">
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h5>Standort</h5>
+                                    <p>Bahnhofstraße / Am Bahnhof, 26831 Bunde</p>
+                                    <small><i class="fa-solid fa-person-walking"></i> Direkt neben dem Bahnhofsgebäude</small>
+                                </div>
+                            </div>
+
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h5>Öffnungszeiten</h5>
+                                    <p>Montag – Sonntag: 10:00 – 01:00 Uhr</p>
+                                    <small>Auch an allen Spieltagen & Feiertagen geöffnet</small>
+                                </div>
+                            </div>
+
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-mug-saucer"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h5>Angebot</h5>
+                                    <p>Kaffee, Tee, Softdrinks, Kartenspiele & Fußball</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex: 1;">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Route via Google Maps
+                        </a>
+                        <button class="btn btn-outline" onclick="openContactModal()">
+                            <i class="fa-solid fa-envelope"></i> Tisch anfragen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Map Frame -->
+                <div class="map-wrapper">
+                    <div class="station-direct-highlight">
+                        <div class="train-icon-big">
+                            <i class="fa-solid fa-train-subway"></i>
+                        </div>
+                        <div class="train-info">
+                            <h4>Super Anbindung per Zug & Bus</h4>
+                            <p>Steig einfach am Bahnhof Bunde aus – du stehst quasi schon vor unserer Eingangstür!</p>
+                        </div>
+                    </div>
+
+                    <div class="map-interactive-view">
+                        <div class="map-overlay-layer"></div>
+                        <div class="map-pin-box">
+                            <div class="pin-marker">
+                                <i class="fa-solid fa-dice-six"></i>
+                            </div>
+                            <div class="pin-card-tag">
+                                <strong>SPILOTEKA BUNDE</strong><br>
+                                <span style="color: var(--primary); font-size: 0.78rem;">Direkt am Bahnhof</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom: 8px;">
+                        <div class="logo-symbol">
+                            <i class="fa-solid fa-dice-d6"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">SPILOTEKA<span>.</span></span>
+                            <span class="logo-subtitle">Vereinsheim Bunde</span>
+                        </div>
+                    </div>
+                    <p>
+                        Der moderne Club für Kartenspiele, gemütliche Abende, Live-Fußball und erlesene Getränke in Bunde. Genieße herzlichen Service in einladender Atmosphäre.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Startseite</a></li>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#features">Spiel & Sport</a></li>
+                        <li><a href="#drinks">Getränke</a></li>
+                        <li><a href="#location">Standort</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Highlights</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Kartenspielabende</a></li>
+                        <li><a href="#features">Bundesliga Live</a></li>
+                        <li><a href="#drinks">Kaffee & Kuchen</a></li>
+                        <li><a href="#location">Bahnhofsnähe</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Adresse</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Vereinsheim Spiloteka<br>
+                        Direkt am Hauptbahnhof<br>
+                        26831 Bunde (Ostfriesland)<br>
+                        Deutschland
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    &copy; <span id="currentYear"></span> Spiloteka Vereinsheim Bunde. Alle Rechte vorbehalten.
+                </div>
+
+                <!-- Signature credits in footer as well -->
+                <div class="designer-signature">
+                    <i class="fa-solid fa-pen-nib" style="color: var(--primary);"></i>
+                    Webdesign & Konzept: <strong>Stefanovic design</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= RESERVATION MODAL ================= -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: #fff;">Tisch reservieren</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">
+                Möchtest du einen Kartenspieltisch oder Plätze fürs nächste Bundesliga-Spiel sichern?
+            </p>
+            <form id="resForm" onsubmit="handleReservation(event)">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">Name</label>
+                    <input type="text" required placeholder="Dein Name" style="width: 100%; padding: 12px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); color: #fff; font-family: inherit;">
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">Personenanzahl</label>
+                    <select style="width: 100%; padding: 12px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); color: #fff; font-family: inherit;">
+                        <option>2 Personen</option>
+                        <option>4 Personen (Kartentisch)</option>
+                        <option>6+ Personen (Gruppe)</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 24px;">
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">Datum & Anlass</label>
+                    <input type="text" placeholder="z.B. Freitag 19 Uhr - Fußballabend" style="width: 100%; padding: 12px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm); color: #fff; font-family: inherit;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage absenden</button>
+            </form>
+        </div>
     </div>
-    <div class="mt-12 pt-7 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/35">
-      <p>© <span class="js-year"></span> Spiloteka Vereinsheim Bünde. Alle Rechte vorbehalten.</p>
-      <div class="flex items-center gap-5">
-        <a href="#top" class="hover:text-gold transition">Impressum</a>
-        <a href="#top" class="hover:text-gold transition">Datenschutz</a>
-        <a href="#top" class="hover:text-gold transition">Nach oben ↑</a>
-        <span class="hidden sm:inline-flex items-center gap-2 pl-5 ml-1 border-l border-cream/10"><span class="font-signature text-xl leading-none text-gold-light/90">Stefanovic</span><span class="text-[.55rem] tracking-[0.28em] uppercase font-bold text-cream/30">design</span></span>
-      </div>
-    </div>
-    <div class="sm:hidden mt-6 flex justify-center"><div class="inline-flex items-center gap-2 border border-cream/10 rounded-full px-4 py-2 bg-white/[0.03]"><span class="font-signature text-xl leading-none text-gold-light">Stefanovic</span><span class="text-[.6rem] tracking-[0.28em] uppercase font-semibold text-cream/40">design</span></div></div>
-  </div>
-</footer>
 
-<!-- Back to top -->
-<button id="to-top" class="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-gold-light to-gold-dark text-ink shadow-gold opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1" aria-label="Nach oben"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-<!-- Toast -->
-<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 z-[70] max-w-[92vw]">
-  <div class="flex items-center gap-3 bg-cream text-ink rounded-2xl px-5 py-3.5 shadow-2xl border border-gold/40">
-    <span id="toast-icon" class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-felt text-cream"><i class="fa-solid fa-check"></i></span>
-    <p id="toast-text" class="text-sm font-medium">Gespeichert!</p>
-  </div>
-</div>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.style.background = 'rgba(13, 17, 23, 0.96)';
+                navbar.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.background = 'rgba(13, 17, 23, 0.82)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox fixed inset-0 z-[80] flex items-center justify-center p-5">
-  <div class="absolute inset-0 bg-ink/92 backdrop-blur-md" data-lb-close></div>
-  <img id="lightbox-img" src="" alt="Ambiente groß" class="relative max-h-[82vh] max-w-full rounded-2xl border border-cream/15 shadow-2xl object-contain">
-  <button class="absolute top-6 right-6 grid h-11 w-11 place-items-center rounded-full border border-cream/20 bg-ink/70 text-cream hover:border-gold hover:text-gold transition" data-lb-close><i class="fa-solid fa-xmark"></i></button>
-  <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-cream/50 bg-ink/70 border border-cream/10 rounded-full px-4 py-1.5 backdrop-blur">Spiloteka Bünde • Ambiente</p>
-</div>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
 
-<script>
-(function(){
-'use strict';
-document.querySelectorAll('.js-year').forEach(function(el){el.textContent=new Date().getFullYear();});
-var header=document.getElementById('site-header');
-var toTop=document.getElementById('to-top');
-function onScroll(){
-  if(window.scrollY>24) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-  if(window.scrollY>600){toTop.style.opacity='1';toTop.style.pointerEvents='auto';}
-  else{toTop.style.opacity='0';toTop.style.pointerEvents='none';}
-}
-onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
-toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('show')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
 
-var menu=document.getElementById('mobile-menu');
-function openMenu(){menu.classList.remove('hidden');document.body.style.overflow='hidden';}
-function closeMenu(){menu.classList.add('hidden');document.body.style.overflow='';}
-document.getElementById('menu-btn').addEventListener('click',openMenu);
-document.getElementById('menu-close').addEventListener('click',closeMenu);
-menu.querySelectorAll('[data-close], .mobile-link').forEach(function(el){el.addEventListener('click',closeMenu);});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeMenu();closeLB();}});
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
 
-var revealEls=document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('is-visible');io.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  revealEls.forEach(function(el){io.observe(el);});
-}else{revealEls.forEach(function(el){el.classList.add('is-visible');});}
+        // Filter Drinks functionality
+        function filterDrinks(category, buttonElement) {
+            // Update active button state
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
 
-var tabButtons=document.querySelectorAll('#angebot .tab-btn');
-var tabPanels=document.querySelectorAll('#angebot .tab-panel');
-tabButtons.forEach(function(btn){btn.addEventListener('click',function(){
-  tabButtons.forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false');});
-  btn.classList.add('active');btn.setAttribute('aria-selected','true');
-  var t=btn.getAttribute('data-tab');
-  tabPanels.forEach(function(p){p.classList.toggle('active',p.id===t);});
-});});
+            // Filter cards
+            const items = document.querySelectorAll('.drink-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                    item.style.animation = 'fadeIn 0.4s ease forwards';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
 
-document.querySelectorAll('.drink-filter').forEach(function(b){b.addEventListener('click',function(){
-  document.querySelectorAll('.drink-filter').forEach(function(x){x.classList.remove('active');});
-  b.classList.add('active');
-  var f=b.getAttribute('data-filter');
-  document.querySelectorAll('.drink-card').forEach(function(c){
-    var show=(f==='all'||c.getAttribute('data-cat')===f);
-    c.style.display=show?'':'none';
-    if(show){c.style.animation='none';void c.offsetWidth;c.style.animation='fadeUp .5s both';}
-  });
-});});
+        // Modal Functionality
+        const contactModal = document.getElementById('contactModal');
 
-document.querySelectorAll('.learn-more').forEach(function(b){b.addEventListener('click',function(){showToast(b.getAttribute('data-info'),'info');});});
+        function openContactModal() {
+            contactModal.classList.add('active');
+        }
 
-var schedule={0:[11*60,23*60],1:null,2:[16*60,24*60],3:[16*60,24*60],4:[16*60,24*60],5:[16*60,25*60],6:[14*60,25*60]};
-var dayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
-function fmt(min){var h=Math.floor(min/60)%24,m=min%60;return (h<10?'0':'')+h+':'+(m<10?'0':'')+m;}
-function isOpenNow(now){var d=now.getDay(),mins=now.getHours()*60+now.getMinutes(),t=schedule[d];if(t&&mins>=t[0]&&mins<t[1])return true;var p=schedule[(d+6)%7];if(p&&p[1]>24*60&&mins+24*60<p[1])return true;return false;}
-function nextOpening(now){var d=now.getDay(),mins=now.getHours()*60+now.getMinutes();for(var i=0;i<8;i++){var dd=(d+i)%7,s=schedule[dd];if(!s)continue;if(i===0&&mins<s[0])return 'heute um '+fmt(s[0])+' Uhr';if(i===1)return 'morgen um '+fmt(s[0])+' Uhr';if(i>1)return 'am '+dayNames[dd]+' um '+fmt(s[0])+' Uhr';}return '';}
-function todayLabel(){var n=new Date(),s=schedule[n.getDay()];if(!s)return 'Heute: geschlossen (Ruhetag)';return 'Heute: '+fmt(s[0])+' – '+fmt(s[1]>1440?s[1]-1440:s[1])+' Uhr';}
-function updateStatus(){
-  var now=new Date(),open=isOpenNow(now);
-  var dot=document.getElementById('status-dot'),text=document.getElementById('status-text');
-  var bDot=document.getElementById('badge-dot'),bText=document.getElementById('badge-text');
-  var topH=document.getElementById('top-hours'); if(topH) topH.textContent=todayLabel();
-  if(!dot||!text||!bDot||!bText)return;
-  if(open){dot.innerHTML='<span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>';text.textContent='Heute geöffnet – wir freuen uns auf dich in Bünde';bDot.className='h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse';bText.textContent='Jetzt geöffnet';bText.parentElement.className='inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[11px] font-medium text-emerald-200';}
-  else{dot.innerHTML='<span class="relative inline-flex h-2 w-2 rounded-full bg-amber-400"></span>';var nx=nextOpening(now);text.textContent=nx?('Geschlossen – öffnet '+nx):'Zurzeit geschlossen';bDot.className='h-1.5 w-1.5 rounded-full bg-amber-400';bText.textContent='Geschlossen';bText.parentElement.className='inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[11px] font-medium text-amber-200';}
-}
-updateStatus();setInterval(updateStatus,60000);
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+        }
 
-function nextSaturday1830(){var n=new Date(),d=new Date(n);d.setHours(18,30,0,0);var diff=(6-n.getDay()+7)%7;if(diff===0&&n>d)diff=7;d.setDate(n.getDate()+diff);return d;}
-var matchDate=nextSaturday1830();
-var ml=document.getElementById('next-match-label');
-if(ml){ml.textContent='Samstag 18:30 • Topspiel live in Bünde ('+matchDate.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'})+')';}
-function tickCD(){var now=new Date(),t=matchDate-now;if(t<0){matchDate=nextSaturday1830();t=matchDate-now;}var dd=Math.floor(t/86400000),hh=Math.floor(t%86400000/3600000),mm=Math.floor(t%3600000/60000),ss=Math.floor(t%60000/1000);var e1=document.getElementById('cd-d'),e2=document.getElementById('cd-h'),e3=document.getElementById('cd-m');if(e1)e1.textContent=(dd<10?'0':'')+dd;if(e2)e2.textContent=(hh<10?'0':'')+hh;if(e3)e3.textContent=(mm<10?'0':'')+mm;}
-tickCD();setInterval(tickCD,30000);
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
 
-var slides=document.querySelectorAll('.testi-slide'),dotsWrap=document.getElementById('testi-dots'),cur=0,timer;
-slides.forEach(function(_,i){var d=document.createElement('button');d.className='h-2 rounded-full transition-all '+(i===0?'w-7 bg-gold':'w-2 bg-cream/20');d.setAttribute('aria-label','Bewertung '+(i+1));d.addEventListener('click',function(){go(i);restart();});dotsWrap.appendChild(d);});
-function go(i){cur=(i+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('active',k===cur);});Array.from(dotsWrap.children).forEach(function(d,k){d.className='h-2 rounded-full transition-all '+(k===cur?'w-7 bg-gold':'w-2 bg-cream/20');});}
-function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},5500);}
-document.getElementById('testi-prev').addEventListener('click',function(){go(cur-1);restart();});
-document.getElementById('testi-next').addEventListener('click',function(){go(cur+1);restart();});
-restart();
+        function handleReservation(e) {
+            e.preventDefault();
+            alert('Vielen Dank! Deine Reservierungsanfrage für die Spiloteka in Bunde wurde entgegengenommen.');
+            closeContactModal();
+        }
 
-document.querySelectorAll('.faq-toggle').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item'),was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(x){x.classList.remove('open');});if(!was)item.classList.add('open');});});
-
-var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightbox-img');
-function closeLB(){lb.classList.remove('open');document.body.style.overflow='';}
-document.querySelectorAll('.gallery-item').forEach(function(g){g.addEventListener('click',function(){lbImg.src=g.getAttribute('data-src');lb.classList.add('open');document.body.style.overflow='hidden';});});
-lb.querySelectorAll('[data-lb-close]').forEach(function(x){x.addEventListener('click',closeLB);});
-
-var toast=document.getElementById('toast'),toastText=document.getElementById('toast-text'),toastIcon=document.getElementById('toast-icon'),toastT;
-function showToast(msg,type){
-  toastText.textContent=msg;
-  toastIcon.innerHTML=type==='info'?'<i class="fa-solid fa-circle-info"></i>':'<i class="fa-solid fa-check"></i>';
-  toastIcon.className='grid h-9 w-9 shrink-0 place-items-center rounded-full '+(type==='info'?'bg-gold text-ink':'bg-felt text-cream');
-  toast.style.transform='translate(-50%, 0)';toast.style.opacity='1';
-  clearTimeout(toastT);toastT=setTimeout(function(){toast.style.transform='translate(-50%, 6rem)';toast.style.opacity='0';},3800);
-}
-
-var counters=document.querySelectorAll('.counter'),counted=false;
-function runCounters(){if(counted)return;counted=true;counters.forEach(function(c){var target=parseInt(c.getAttribute('data-target'),10),start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/1400,1),e=1-Math.pow(1-p,3);c.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});}
-if('IntersectionObserver' in window){var cio=new IntersectionObserver(function(e){if(e[0].isIntersecting){runCounters();cio.disconnect();}});if(counters.length)cio.observe(counters[0]);}else runCounters();
-
-var tilt=document.getElementById('tilt-card');
-if(tilt&&window.matchMedia('(pointer:fine)').matches){
-  tilt.addEventListener('mousemove',function(e){var r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;tilt.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*10)+'deg)';});
-  tilt.addEventListener('mouseleave',function(){tilt.style.transform='perspective(900px) rotateY(0) rotateX(0)';});
-  tilt.style.transition='transform .25s ease';
-}
-
-var canvas=document.getElementById('suits-canvas');
-if(canvas){
-  var ctx=canvas.getContext('2d'),parts=[],suits=['♥','♠','♦','♣'];
-  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
-  resize();window.addEventListener('resize',resize);
-  for(var i=0;i<22;i++){parts.push({x:Math.random(),y:Math.random(),s:suits[i%4],v:.0004+Math.random()*.0009,o:.06+Math.random()*.14,sz:12+Math.random()*18});}
-  (function anim(){ctx.clearRect(0,0,canvas.width,canvas.height);parts.forEach(function(p){p.y-=p.v;if(p.y<-.05){p.y=1.05;p.x=Math.random();}ctx.globalAlpha=p.o;ctx.fillStyle=p.s==='♥'||p.s==='♦'?'#D9A441':'#F7F3EA';ctx.font=p.sz+'px serif';ctx.fillText(p.s,p.x*canvas.width,p.y*canvas.height);});ctx.globalAlpha=1;requestAnimationFrame(anim);})();
-}
-
-var picker=document.getElementById('table-picker'),selectedTable='Stammtisch';
-if(picker){picker.querySelectorAll('.table-opt').forEach(function(o){o.addEventListener('click',function(){picker.querySelectorAll('.table-opt').forEach(function(x){x.classList.remove('selected');});o.classList.add('selected');selectedTable=o.getAttribute('data-table');});});}
-
-var dateInput=document.getElementById('date'),dateHint=document.getElementById('date-hint');
-if(dateInput){var today=new Date();dateInput.min=today.toISOString().split('T')[0];dateInput.addEventListener('change',function(){if(!dateInput.value){dateHint.classList.add('hidden');return;}var d=new Date(dateInput.value+'T12:00:00');if(d.getDay()===1){dateHint.textContent='Hinweis: Montags ist Ruhetag – wir melden uns mit einem Alternativtermin.';dateHint.classList.remove('hidden');}else{dateHint.textContent='Gute Wahl! Der '+d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long'})+' ist bei uns geöffnet.';dateHint.className='text-xs rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-2.5 text-emerald-200';}});}
-
-var form=document.getElementById('reservation-form'),feedback=document.getElementById('form-feedback');
-form.addEventListener('submit',function(e){
-  e.preventDefault();
-  var name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim();
-  var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if(!name||!ok){feedback.className='text-sm rounded-xl border border-rose-400/30 bg-rose-400/10 px-4 py-3 text-rose-200';feedback.textContent='Bitte gib deinen Namen und eine gültige E-Mail-Adresse an.';feedback.classList.remove('hidden');return;}
-  var data={name:name,email:email,date:dateInput.value,time:document.getElementById('time').value,guests:document.getElementById('guests').value,table:selectedTable,msg:document.getElementById('message').value,at:new Date().toISOString()};
-  try{var arr=JSON.parse(localStorage.getItem('spiloteka_res')||'[]');arr.push(data);localStorage.setItem('spiloteka_res',JSON.stringify(arr));}catch(err){}
-  feedback.className='text-sm rounded-xl border border-emerald-400/25 bg-emerald-400/10 px-4 py-3 text-emerald-200';feedback.innerHTML='Danke, <b>'+name.replace(/</g,'&lt;')+'</b>! Deine Anfrage für <b>'+selectedTable+'</b> ist bei uns in Bünde eingegangen – wir melden uns bald per E-Mail.';feedback.classList.remove('hidden');
-  showToast('Reservierung gesendet – bis bald in Bünde, '+name.split(' ')[0]+'!');
-  confettiBurst();form.reset();document.getElementById('time').value='18:00';
-});
-
-function confettiBurst(){
-  var c=document.createElement('canvas');c.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:90';document.body.appendChild(c);
-  var x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
-  var ps=[];for(var i=0;i<90;i++){ps.push({x:innerWidth/2+(Math.random()-.5)*200,y:innerHeight-160,vx:(Math.random()-.5)*9,vy:-Math.random()*10-3,g:.32,col:['#EFC978','#D9A441','#F7F3EA','#1B7A4B'][i%4],r:3+Math.random()*4,l:1});}
-  var f=0;(function an(){f++;x.clearRect(0,0,c.width,c.height);var alive=false;ps.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.l-=.008;if(p.l>0&&p.y<c.height+20){alive=true;x.globalAlpha=Math.max(p.l,0);x.fillStyle=p.col;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();}});x.globalAlpha=1;if(alive&&f<220)requestAnimationFrame(an);else c.remove();})();
-}
-
-var snd=document.getElementById('sound-toggle'),playing=false,audioCtx;
-if(snd){snd.addEventListener('click',function(){playing=!playing;snd.innerHTML=playing?'<i class="fa-solid fa-volume-high"></i>':'<i class="fa-solid fa-volume-low"></i>';snd.classList.toggle('bg-gold',playing);snd.classList.toggle('text-ink',playing);showToast(playing?'Kaffeehaus-Atmosphäre: an (gedacht) ☕':'Atmosphäre: aus');});}
-
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}});});
-})();
-</script>
+        // CSS Keyframe Injection for drink filter animation
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
 </body>
 </html>
